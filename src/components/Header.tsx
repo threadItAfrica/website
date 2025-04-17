@@ -87,16 +87,16 @@ const Header = () => {
 
           {/* Right Side: Hamburger Menu (Mobile), About Link, Social Links, and Newsletter Button */}
           <div className="flex items-center space-x-2">
-            {/* About Link and Social Media Links - Hidden when scrolled */}
+            {/* About Link and Social Media Links - Visible on 2xl and Up, Hidden when scrolled */}
             <div
-              className={`flex items-center space-x-2 ${
-                isScrolled ? "hidden" : "flex"
+              className={`hidden items-center space-x-2 ${
+                isScrolled ? "2xl:hidden" : "2xl:flex"
               }`}
             >
               {/* About Link */}
               <Link
                 href="/about"
-                className={`flex items-center space-x-1 hover:text-[#E5D170] transition-all duration-200 hover:bg-[#005A56] hover:rounded-md hover:shadow-md whitespace-nowrap text-gray-900 text-sm px-2 inline-block py-1 md:py-0 font-[600]`}
+                className="flex items-center space-x-1 hover:text-[#E5D170] transition-all duration-200 hover:bg-[#005A56] hover:rounded-md hover:shadow-md whitespace-nowrap text-gray-900 text-sm px-2 inline-block py-1 md:py-0 font-[600]"
               >
                 About
               </Link>
@@ -106,17 +106,17 @@ const Header = () => {
                 <Link
                   key={index}
                   href={link.href}
-                  target="_blank" // Open in a new tab
-                  rel="noopener noreferrer" // Security best practice for external links
-                  className={`flex items-center hover:text-[#E5D170] transition-all duration-200 hover:bg-[#005A56] hover:rounded-md hover:shadow-md text-gray-900 text-sm px-2 inline-block py-1 md:py-0`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center hover:text-[#E5D170] transition-all duration-200 hover:bg-[#005A56] hover:rounded-md hover:shadow-md text-gray-900 text-sm px-2 inline-block py-1 md:py-0"
                 >
                   {link.icon}
                 </Link>
               ))}
             </div>
 
-            {/* Newsletter Button - Visible on All Screens */}
-            <div className="flex items-center">
+            {/* Newsletter Button - Visible on 2xl and Up */}
+            <div className="hidden 2xl:flex items-center">
               <Button onClick={() => setIsOpen(true)} />
             </div>
 
@@ -127,12 +127,13 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Dropdown Menu - Visible below 2xl (excluding About) */}
+        {/* Mobile Dropdown Menu - Visible below 2xl (includes About, Social Links, and Newsletter Button) */}
         <div
           className={`sticky 2xl:hidden bg-gray-50 border-t border-gray-200 overflow-hidden transition-all duration-300 ${
             isOpen ? "h-fit opacity-100 py-6" : "h-0 opacity-0"
           }`}
         >
+          {/* Section Links */}
           {sectionLinks.map((item, index) => (
             <Link
               key={index}
@@ -143,6 +144,35 @@ const Header = () => {
               {item.title}
             </Link>
           ))}
+
+          {/* About Link */}
+          <Link
+            href="/about"
+            onClick={toggleMenu}
+            className="block px-6 py-3 text-inherit hover:bg-green-50"
+          >
+            About
+          </Link>
+
+          {/* Social Media Links */}
+          <div className="flex items-center space-x-4 px-6 py-3">
+            {socialLinks.map((link, index) => (
+              <Link
+                key={index}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-inherit hover:text-[#E5D170]"
+              >
+                {link.icon}
+              </Link>
+            ))}
+          </div>
+
+          {/* Newsletter Button */}
+          <div className="px-6 py-3">
+            <Button onClick={() => setIsOpen(true)} />
+          </div>
         </div>
       </div>
     </nav>

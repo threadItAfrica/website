@@ -56,7 +56,7 @@ async function About() {
         
         <section
           id="our-story"
-          className=" bg-white text-gray-700 py-6 px-60 w-full   mx-auto container "
+          className=" bg-white text-gray-700 py-6 lg:px-60 px-10 w-full   mx-auto container "
         >
           {[
             {
