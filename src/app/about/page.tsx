@@ -19,7 +19,7 @@ async function About() {
           <div className="absolute -bottom-[90px] -left-[90px] w-[200px] h-[200px] rounded-full bg-secondary flex justify-center items-center"></div>
 
           {/* text and image container */}
-          <div className="text-white flex flex-col items-center justify-center w-fit h-full relative z-10 py-8">
+          <div className="text-white flex flex-col items-center justify-center w-fit h-full mx-auto relative z-10 py-8">
             {/* container to resize texts and make responsive */}
             <div className="w-full md:w-[80%] lg:w-[60%] xl:w-[40%] h-fit text-center py-6 px-4">
               <h1 className="text-inherit text-md md:text-[3rem] capitalize font-[600] leading-snug">

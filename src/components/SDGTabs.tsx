@@ -60,9 +60,9 @@ export default function SDGTab() {
   ];
 
   return (
-    <div className="w-full max-w-[80%] mx-auto p-4 bg-white rounded-xl mt-[100px] py-8">
+    <div className="w-full md:max-w-[80%] mx-auto md:p-4 bg-white rounded-xl mt-[100px] py-8">
       {/* Tab Navigation */}
-      <div className="flex justify-center gap-2  space-x-2 pb-2">
+      <div className="flex flex-col md:flex-row justify-center gap-2  md:space-x-2 pb-4">
         {tabs.map((tab) => (
           <button
             key={tab.id}
@@ -85,18 +85,18 @@ export default function SDGTab() {
       </div>
 
       {/* Tab Content */}
-      <div className="p-6 bg-white rounded-b-lg">
+      <div className="md:p-6 bg-white rounded-b-lg">
         {tabs.map((tab) => (
           <div
             key={tab.id}
             className={`${activeTab === tab.id ? "block" : "hidden"}`}
           >
             {/* header */}
-            <div className="w-full flex flex-row justify-between">
+            <div className="w-full flex flex-col md:flex-row justify-start md:justify-between">
               {/* image */}
               <div
                 style={{ backgroundImage: `url(${tab.icon.src})` }}
-                className="w-full md:w-[40%] h-[200px] mx-auto bg-contain bg-no-repeat bg-center rounded-xls"
+                className="w-full h-[300px] md:w-[40%] md:h-[200px] md:mx-auto bg-contain bg-no-repeat bg-center rounded-xls my-6"
               ></div>
 
               {/* header texts */}
