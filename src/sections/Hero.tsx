@@ -29,7 +29,7 @@ const Hero = () => {
   
 
   return (
-    <section className="w-full h-[auto] lg:min-h-screen flex flex-col gap-5 lg:flex-row justify-center items-center bg-[#005A56] text-white text-center py-6
+    <section className="w-full h-[auto] lg:min-h-screen flex flex-col gap-5 lg:flex-row justify-center items-center bg-tertiary text-white text-center py-6
 
  px-2 lg:px-20 relative overflow-hidden ">
 

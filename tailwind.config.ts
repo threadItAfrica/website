@@ -22,7 +22,7 @@ export default {
       colors: {
         primary: "#006838",
         secondary: "#E9C770",
-        tertiary: "#718E60",
+        tertiary: "#005A56",
         extra: "#d7958e",
         heroBg: "#e6fae5",
         background: "var(--background)",

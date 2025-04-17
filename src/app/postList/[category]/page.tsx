@@ -38,7 +38,7 @@ type PageProps = {
 };
 const TitleSection = ({category}: {category: string}) => (
   <div
-  className="relative bg-cover bg-center text-white md:min-h-[20vh] conatiner  max-w-[2024px] mx-auto"
+  className="relative bg-cover bg-center text-white py-8 md:h-[20vh] conatiner  max-w-[2024px] mx-auto"
   style={{
     backgroundImage:
       category === "sustainability-for-fashion-brands"
@@ -55,8 +55,8 @@ const TitleSection = ({category}: {category: string}) => (
   {/* Overlay */}
   <div className="absolute inset-0 bg-black bg-opacity-65"></div>
 
-  <div className="relative z-10 flex items-center justify-center h-full">
-    <p className="text-lg capitalize md:text-xl py-2 px-4 mx-auto rounded-lg w-fit font-[600] mb-4">
+  <div className="relative w-full z-10 flex items-center justify-center h-full">
+    <p className="text-lg md:text-3xl capitalize py-2 px-4 mx-auto rounded-lg w-fit font-[500] mb-4">
       {category.split("-").join(" ")} Posts
     </p>
   </div>

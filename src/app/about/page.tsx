@@ -2,16 +2,17 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 // import Image from "next/image";
-import aboutUsMainImage from "@/assets/images/aboutUsImage.jpg"; // Import your image
-import africaImage from "@/assets/images/africa.jpeg";
-import missionImage from "@/assets/images/save_the_world.jpg";
+import aboutUsMainImage from "@/assets/images/aboutUsImage.png"; // Import your image
+import aboutImage from "@/assets/images/aboutImage1.png";
+import missionImage from "@/assets/images/save_the_world2.jpg";
+import SDGTab from "@/components/SDGTabs";
 
 async function About() {
   return (
     <main>
       <Header />
       <div className="relative w-full">
-        <div className=" bg-[#005A56] w-full h-fit relative overflow-hidden">
+        <div className=" bg-tertiary w-full h-fit relative overflow-hidden">
           {/* golden balls */}
           <div className="absolute -top-[90px] -right-[90px] w-[200px] h-[200px] rounded-full bg-secondary flex justify-center items-center"></div>
 
@@ -44,11 +45,11 @@ async function About() {
 
             {/* Image */}
             {/* <div className="w-full md:w-[80%] lg:w-[60%] xl:w-[40%]"> */}
-             
-               <div
-                style={{ backgroundImage: `url(${aboutUsMainImage.src})` }}
-                className="w-[600px] h-[500px] bg-cover bg-center rounded-xls"
-              ></div>
+
+            <div
+              style={{ backgroundImage: `url(${aboutUsMainImage.src})` }}
+              className="w-[600px] h-[400px] bg-contain bg-center bg-no-repeat rounded-xls -mb-8"
+            ></div>
             {/* </div> */}
           </div>
         </div>
@@ -67,7 +68,7 @@ async function About() {
               In Africa, this impact shows up in unique ways. We see it in the overflow of secondhand clothes in our markets and the limited infrastructure for textile waste and recycling.
               That’s where Threadit comes in. A platform committed to making sustainability make sense in the context we live, dress, and create in. We explore sustainable fashion through a lens shaped by culture, creativity, and lived experience.
               Through content, community, and storytelling, we’re bringing sustainability closer to home.`,
-              image: africaImage,
+              image: aboutImage,
             },
             {
               title: "Our Mission",
@@ -81,11 +82,9 @@ async function About() {
           ].map((item, index) => (
             <div
               key={index}
-              className={`flex flex-col md:flex-row gap-8 items-center justify-center ${index === 1 ? 'md:flex-row-reverse': ""}`}
+              className={`flex flex-col md:flex-row gap-8 items-center justify-center ${index === 1 ? "md:flex-row-reverse" : ""}`}
             >
-              <div 
-                className="w-full md:w-[80%] ld:w-[60%] h-fit mx-auto my-8"
-              >
+              <div className="w-full md:w-[80%] ld:w-[60%] h-fit mx-auto my-8">
                 <h1 className="text-[#005A56] font-[600] text-md uppercase flex items-center gap-4 leading-relaxed">
                   <span className="bg-[#005A56] w-[3rem] h-[2px]"></span>
                   {item.title}
@@ -103,6 +102,36 @@ async function About() {
               ></div>
             </div>
           ))}
+
+          {/* SDG Section */}
+          <div className="bg-gray-100 py-8">
+            <div className="w-full md:w-[80%] ld:w-[60%] h-fit mx-auto my-8">
+              <h1 className="text-tertiary font-[600] text-md uppercase flex items-center gap-4 leading-relaxed">
+                <span className="bg-tertiary w-[3rem] h-[2px]"></span>
+                Our Commitment to The Global Goals
+              </h1>
+              <h2 className="text-inherit text-[2rem] capitalize font-[600] leading-relaxed">
+                Aligning with United Nations SDGs for Greater Impact
+              </h2>
+              <p className="text-inherit font-[400] leading-loose text-gray-400">
+                At Threadit, our work is guided by the United Nations
+                Sustainable Development Goals (SDGs)—a global blueprint for a
+                better future. As we grow, these goals help shape the stories we
+                tell, the communities we support, and the impact we hope to
+                make. We focus on three key goals:
+              </p>
+
+              <Link
+                href="https://sdgs.un.org/2030agenda"
+                target="_blank"
+                className="mt-4 hover:text-tertiary hover:bg-transparent py-2 px-4 border-tertiary border-[1px] rounded-full w-fit bg-tertiary text-white transition-all flex items-center gap-2"
+              >
+                <span className="text-md md:text-lg font-[600]">2030 Agenda for Sustainable Development</span>
+              </Link>
+            </div>
+
+            <SDGTab />
+          </div>
         </div>
       </div>
       <Footer />
