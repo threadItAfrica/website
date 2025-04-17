@@ -41,7 +41,7 @@ const Hero = async () => {
 
       
         <video
- className="w-[90%] lg:w-[50%] h-full  object-cover rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.3)]"
+ className="w-[90%] lg:w-[50%] h-[100%]  object-cover rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.3)]"
           autoPlay
           muted
           loop
