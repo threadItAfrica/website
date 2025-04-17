@@ -1,7 +1,8 @@
-
+"use client";
+import * as React from 'react'
 import logo from "@/assets/images/logo.svg";
 import Image from "next/image";
-import poster from "@/assets/images/poster.jpg";
+// import poster from "@/assets/images/poster.jpg";
 import leaf from "@/assets/illustrations/leaf.png";
 import hanger from "@/assets/illustrations/hanger.png";
 import hat from "@/assets/illustrations/hat.png";
@@ -10,19 +11,19 @@ import recycle from "@/assets/illustrations/recycle.png";
 import { SearchBar } from "@/components/SearchBar";
 
 const Hero = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [showPoster, setShowPoster] = useState(true);
+  // const videoRef = React.useRef<HTMLVideoElement>(null);
+  // const [showPoster, setShowPoster] = React.useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (videoRef.current) {
-        videoRef.current.play();
-        setShowPoster(false);
-      }
-    }, 3000); // 2 second delay
+  // React.useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     if (videoRef.current) {
+  //       videoRef.current.play();
+  //       setShowPoster(false);
+  //     }
+  //   }, 3000); // 2 second delay
 
-    return () => clearTimeout(timer);
-  }, []);
+    // return () => clearTimeout(timer);
+  // }, []);
 
   // Example category title to demonstrate conditional text coloring
   
