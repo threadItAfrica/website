@@ -5,7 +5,7 @@ import { Spiral as Menu } from "hamburger-react";
 import Link from "next/link";
 import { useModal } from "@/context/ModalContext";
 import logo from "@/assets/images/logo.svg";
-import { FaHome, FaTwitter, FaFacebook, FaInstagram } from "react-icons/fa"; // Import social media icons
+import { FaTwitter, FaFacebook, FaInstagram } from "react-icons/fa"; // Import social media icons
 
 const Header = () => {
   const [isOpen, setMenuOpen] = React.useState(false);

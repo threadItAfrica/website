@@ -9,9 +9,7 @@ import hat from "@/assets/illustrations/hat.png";
 import needle from "@/assets/illustrations/needle.png";
 import recycle from "@/assets/illustrations/recycle.png";
 import { SearchBar } from "@/components/SearchBar";
-import { FaInstagram } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
+
 
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
