@@ -35,27 +35,27 @@ const Hero = () => {
       <Image
         src={hanger}
         alt="decoration"
-        className="hidden md:block absolute top-14 left-10 w-24 h-24 -translate-x-1/2 -translate-y-1/2 opacity-80"
+        className="block absolute top-4 left-6 w-16 h-16  lg:top-14 lg:left-10 lg:w-24 lg:h-24 -translate-x-1/2 -translate-y-1/2 opacity-80 z-[0] lg:z-[0]"
       />
       <Image
         src={hat}
         alt="decoration"
-        className="hidden md:block absolute top-44 right-10 w-24 h-24 translate-x-1/2 translate-y-1/2 opacity-80"
+        className="block absolute top-74 right-10 w-16 h-16 translate-x-1/2 translate-y-1/2 opacity-80 z-[0] lg:z-[0]"
       />
       <Image
         src={recycle}
         alt="decoration"
-        className="hidden md:block absolute bottom-8 left-10 w-18 h-18 translate-x-1/2 translate-y-1/2 opacity-80"
+        className="block absolute bottom-8 left-2 w-16 h-16 translate-x-1/2 translate-y-1/2 opacity-80 z-[0] lg:z-[0]"
       />
       <Image
         src={leaf}
         alt="decoration"
-        className="hidden md:block absolute bottom-14 right-10 w-20 h-20 translate-x-1/2 translate-y-1/2 opacity-80"
+        className="block absolute bottom-14 right-10 w-16 h-16 translate-x-1/2 translate-y-1/2 opacity-80 z-[0] lg:z-[0]"
       />
       <Image
         src={needle}
         alt="decoration"
-        className="hidden md:block absolute top-1/2 left-20 w-20 h-20 -translate-x-1/2 translate-y-1/2 opacity-80"
+        className="block absolute top-1/2 left-10 w-16 h-16 -translate-x-1/2 translate-y-1/2 opacity-80 z-[0] lg:z-[0]"
       />
 
       {/* Video */}
@@ -77,11 +77,12 @@ const Hero = () => {
       {/* Text Content */}
       <div className="flex flex-col items-center justify-center w-full md:w-[80%]">
         <div className="text-center w-fit mx-auto text-white py-4 px-8 rounded-xl">
-          <p className="text-2xl md:text-5xl text-inherit font-Thicccboi">
+          <p className="text-3xl md:text-5xl text-inherit font-Thicccboi leading-none">
             What you wear
-            <br /> can change everything - 
             <br />
-            <span className="block mt-4 md:mt-6 text-2xl md:text-4xl text-[#E5D170]">
+         can change everything
+            <br />
+            <span className="block mt-2 md:mt-2 text-2xl md:text-4xl text-[#E5D170]">
               Hi Threadies,
             </span>
           </p>
@@ -89,7 +90,7 @@ const Hero = () => {
         
      
 
-          <p className="mt-2 text-md md:text-[1.05rem] text-inherit font-lato w-full md:w-2/4 text-center mx-auto">
+          <p className="mt-1 text-md md:text-[1.05rem] text-inherit font-lato w-full md:w-2/4 text-center mx-auto">
             Look good. Do good.
           </p>
         </div>
