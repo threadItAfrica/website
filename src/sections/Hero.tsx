@@ -40,7 +40,7 @@ const Hero = async () => {
         alt="decoration"
         className="hidden md:block absolute top-1/2 left-20 w-20 h-20 -translate-x-1/2 translate-y-1/2 opacity-80"
       />
-      <div className="w-[90%] lg:w-[90%] flex-grow flex-shrink basis-0">
+      <div className="w-[100%] lg:w-[100%] h-[60vh]">
       
         <video
  className="w-full lg:w-full h-full  object-cover rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.3)]"
