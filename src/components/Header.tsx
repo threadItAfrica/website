@@ -23,10 +23,10 @@ const Header = () => {
   const toggleMenu = () => setMenuOpen(!isOpen);
 
   const sectionLinks = [
-    { title: "Green Fashion", href: "/skin" },
-    { title: "Sustainability", href: "/makeup" },
-    { title: "Eco Trends", href: "/hair" },
-    { title: "African History", href: "/nails" },
+    { title: "Green Fashion", href: "postList/green-fashion-101" },
+    { title: "Sustainability", href: "postList/sustainability-for-fashion-brands" },
+    { title: "Eco Trends", href: "postList/e/eco-trends-and-innovations" },
+    { title: "African History", href: "postList/african-fashion-history" },
     { title: "About", href: "/about" },
   ];
 
