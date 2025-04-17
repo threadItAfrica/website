@@ -23,15 +23,10 @@ const Header = () => {
   const toggleMenu = () => setMenuOpen(!isOpen);
 
   const sectionLinks = [
-    { title: "SKIN", href: "/skin" },
-    { title: "MAKEUP", href: "/makeup" },
-    { title: "HAIR", href: "/hair" },
-    { title: "NAILS", href: "/nails" },
-    { title: "STYLE", href: "/style" },
-    { title: "NEWS", href: "/news" },
-    { title: "WHAT TO BUY", href: "/what-to-buy" },
-    { title: "HEALTH AND WELLNESS", href: "/health-and-wellness" },
-    { title: "ABOUT US", href: "/about-us" },
+    { title: "Green Fashion", href: "/skin" },
+    { title: "Sustainability", href: "/makeup" },
+    { title: "Eco Trends", href: "/hair" },
+    { title: "African History", href: "/nails" },
   ];
 
   return (
@@ -42,16 +37,11 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center">
-          {/* Mobile Menu Button */}
-          <button onClick={toggleMenu} className="md:hidden">
-            <Menu toggled={isOpen} toggle={setMenuOpen} color={"black"} />
-          </button>
-
           {/* Logo and Links Wrapper */}
           <div
             className={`flex ${
               isScrolled ? "flex-row items-center" : "flex-col items-start"
-            } w-full md:w-auto justify-start`}
+            } w-full 2xl:w-auto justify-start`}
           >
             {/* Logo */}
             <Link href="/">
@@ -63,10 +53,10 @@ const Header = () => {
               />
             </Link>
 
-            {/* Navigation Links */}
+            {/* Navigation Links - Hidden on Mobile, Visible on 2xl and Up */}
             <div
-              className={`flex flex-row flex-wrap ${
-                isScrolled ? "space-x-1 md:space-x-2" : "space-x-2 md:space-x-4"
+              className={`hidden 2xl:flex flex-row flex-wrap ${
+                isScrolled ? "space-x-1 md:space-x-2" : "space-x-3 md:space-x-4"
               } justify-start items-center ${
                 isScrolled ? "ml-2 md:ml-4" : "mt-2 md:mt-0"
               }`}
@@ -75,10 +65,10 @@ const Header = () => {
                 <Link
                   key={index}
                   href={item.href}
-                  className={`hover:text-primary transition-all whitespace-nowrap ${
+                  className={`hover:text-[#E5D170] transition-all duration-200 hover:bg-[#005A56] hover:rounded-md hover:shadow-md transition-all whitespace-nowrap ${
                     isScrolled
                       ? "text-gray-800 text-xs md:text-sm px-1"
-                      : "text-gray-900 text-sm lg:text-base px-2"
+                      : "text-gray-900 text-sm px-2"
                   } inline-block py-1 md:py-0 font-[600]`}
                 >
                   {item.title}
@@ -87,15 +77,23 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Right Button */}
-          <div className="hidden md:flex items-center space-x-2">
-            <Button onClick={() => setIsOpen(true)} />
+          {/* Right Side: Hamburger Menu (Mobile) and Button (2xl and Up) */}
+          <div className="flex items-center space-x-2">
+            {/* Hamburger Menu Button - Visible below 2xl */}
+            <button onClick={toggleMenu} className="2xl:hidden">
+              <Menu toggled={isOpen} toggle={setMenuOpen} color={"black"} />
+            </button>
+
+            {/* Right Button - Visible on 2xl and Up */}
+            <div className="hidden 2xl:flex items-center space-x-2">
+              <Button onClick={() => setIsOpen(true)} />
+            </div>
           </div>
         </div>
 
-        {/* Mobile Dropdown Menu */}
+        {/* Mobile Dropdown Menu - Visible below 2xl */}
         <div
-          className={`sticky md:hidden bg-gray-50 border-t border-gray-200 overflow-hidden transition-all duration-300 ${
+          className={`sticky 2xl:hidden bg-gray-50 border-t border-gray-200 overflow-hidden transition-all duration-300 ${
             isOpen ? "h-fit opacity-100 py-6" : "h-0 opacity-0"
           }`}
         >
