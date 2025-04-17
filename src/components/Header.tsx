@@ -23,10 +23,10 @@ const Header = () => {
   const toggleMenu = () => setMenuOpen(!isOpen);
 
   const sectionLinks = [
-    { title: "Green Fashion", href: "postList/green-fashion-101" },
-    { title: "Sustainability", href: "postList/sustainability-for-fashion-brands" },
-    { title: "Eco Trends", href: "postList/e/eco-trends-and-innovations" },
-    { title: "African History", href: "postList/african-fashion-history" },
+    { title: "Green Fashion", href: "/postList/green-fashion-101" },
+    { title: "Sustainability", href: "/postList/sustainability-for-fashion-brands" },
+    { title: "Eco Trends", href: "/postList/e/eco-trends-and-innovations" },
+    { title: "African History", href: "/postList/african-fashion-history" },
     { title: "About", href: "/about" },
   ];
 
@@ -66,7 +66,7 @@ const Header = () => {
                 <Link
                   key={index}
                   href={item.href}
-                  className={`hover:text-[#E5D170] transition-all duration-200 hover:bg-[#005A56] hover:rounded-md hover:shadow-md transition-all whitespace-nowrap ${
+                  className={`hover:text-[#E5D170] transition-all duration-200 hover:bg-[#005A56] hover:rounded-md hover:shadow-md whitespace-nowrap ${
                     isScrolled
                       ? "text-gray-800 text-xs md:text-sm px-1"
                       : "text-gray-900 text-sm px-2"
