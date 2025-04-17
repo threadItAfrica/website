@@ -43,7 +43,7 @@ const Hero = async () => {
      
       
         <video
- className="w-auto  h-[60vh]  object-cover rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.3)]"
+ className="w-auto  h-[60vh]  rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.3)]"
           autoPlay
           muted
           loop
