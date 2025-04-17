@@ -94,7 +94,7 @@ const Hero = () => {
           </p>
         </div>
 
-        <SearchBar />
+        <SearchBar className="mx-4" />
       </div>
     </section>
   );
