@@ -41,9 +41,9 @@ const Hero = async () => {
         className="hidden md:block absolute top-1/2 left-20 w-20 h-20 -translate-x-1/2 translate-y-1/2 opacity-80"
       />
      
-      
+      <div className=" w-[90%] max-w-4xl aspect-video rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.3)]">
         <video
- className="w-auto  h-[60vh]  rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.3)]"
+ className=" w-full h-full object-cover rounded-xl "
           autoPlay
           muted
           loop
@@ -53,7 +53,7 @@ const Hero = async () => {
           <source src="/video/Hero.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-       
+        </div>
       <div className="flex flex-col items-center justify-center w-full md:w-[80%] ">
         <div className=" tet-center w-fit mx-center text-white py-4 px-8 rounded-xl">
         <p className="text-3xl md:text-5xl text-inherit font-Thicccboi">
