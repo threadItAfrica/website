@@ -3,6 +3,7 @@ import * as React from "react";
 import sdg8 from "@/assets/images/sdg8.png";
 import sdg13 from "@/assets/images/sdg13.png";
 import sdg12 from "@/assets/images/sdg12.png";
+import Link from "next/link";
 
 export default function SDGTab() {
   const [activeTab, setActiveTab] = React.useState(0);
@@ -44,14 +45,14 @@ export default function SDGTab() {
     {
       id: 2,
       goal: "Sustainable Goal 13",
-      title: "",
-      subtitle: "",
+      title: "climate action",
+      subtitle: "hreadit addresses fashion's significant environmental impact by using storytelling to connect fashion choices with climate outcomes. ",
       icon: sdg13,
       content: [
-        { title: "A Commitment to Fair Work in Fashion", body: "As Threadit grows, we’re committed to promoting ethical labor and inclusive economic growth across the fashion industry." },
-        { title: "Spotlighting Ethical Brands and Local Creatives", body: "We highlight designers and brands that value fair wages, transparency, and safe working conditions. We hope to drive awareness and support for ethical fashion by featuring their stories." },
-        { title: "Encouraging Conscious Consumption", body: "We believe conscious consumer choices can drive better outcomes for workers. As we build our platform, we aim to connect people with brands doing better for the planet and its people." },
-        { title: "Building Awareness Through Storytelling", body: "We use our content to start conversations about labor rights, garment worker safety, and the people behind the clothes we wear, especially in African contexts where these stories are often left untold."},
+        { title: "Taking Climate Action Through Fashion Awareness", body: "The fashion industry is a major contributor to global pollution and waste. While its environmental impact is significant, it also presents a powerful opportunity to drive real, lasting change." },
+        { title: "Raising Awareness Through Content", body: "At Threadit, we use storytelling to connect the dots between fashion and climate. From overproduction to textile waste, we break down how everyday fashion habits contribute to environmental harm and what we can do differently." },
+        { title: "Encouraging Low-Impact Habits", body: "We encourage small shifts like choosing secondhand, repairing what you already own, and washing less, to lower fashion’s footprint. These small actions, when done consistently, reduce fashion’s overall carbon footprint." },
+        { title: "Highlighting Local Environmental Realities", body: "Through articles and community voices, we shed light on how fashion waste impacts African cities and ecosystems. By centering local stories, we make climate action feel closer to home and more urgent."},
 
       ],
       link: "https://sdgs.un.org/goals/goal13",
@@ -107,6 +108,13 @@ export default function SDGTab() {
                 </h1>
                 <h3 className="text-xl font-bold mb-4">{tab.goal}</h3>
                 <p>{tab.subtitle}</p>
+                <Link
+                href={tab.link}
+                target="_blank"
+                className="text-white bg-tertiary py-2 px-4 border-white border-[1px] rounded-full w-fit hover:bg-white hover:text-[#005A56] transition-all flex items-center mt-4"
+              >
+                <span className="text-md md:text-lg font-[600]">More Info</span>
+              </Link>
               </div>
             </div>
 
