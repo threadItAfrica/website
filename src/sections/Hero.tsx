@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import logo from "@/assets/images/logo.svg";
 import poster from "@/assets/images/poster.jpg";
 import leaf from "@/assets/illustrations/leaf.png";
 import hanger from "@/assets/illustrations/hanger.png";
@@ -31,15 +30,6 @@ const Hero = () => {
     title: "Sustainability for Fashion Brands",
   };
 
-  const getCategoryColorClass = (title: string) => {
-    return title === "Sustainability for Fashion Brands"
-      ? "text-tertiary"
-      : title === "Eco Trends & Innovations"
-      ? "text-primary"
-      : title === "Green Fashion 101"
-      ? "text-secondary"
-      : "";
-  };
 
   return (
     <section className="w-full h-auto lg:min-h-screen flex flex-col gap-5 lg:flex-row justify-center items-center bg-[#005A56] text-white text-center py-10 px-2 lg:px-20 relative overflow-hidden">
@@ -99,7 +89,7 @@ const Hero = () => {
             </span>
           </p>
 
-          {/* Category-based highlight text */}
+        
      
 
           <p className="mt-2 text-md md:text-[1.05rem] text-inherit font-lato w-full md:w-2/4 text-center mx-auto">
