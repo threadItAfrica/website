@@ -27,6 +27,7 @@ const Header = () => {
     { title: "Sustainability", href: "/makeup" },
     { title: "Eco Trends", href: "/hair" },
     { title: "African History", href: "/nails" },
+    { title: "About", href: "/about" },
   ];
 
   return (
