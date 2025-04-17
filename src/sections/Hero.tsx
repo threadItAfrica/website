@@ -44,7 +44,7 @@ const Hero = () => {
           poster={showPoster ? poster.src : undefined}
           preload="auto"
         >
-          <source src="/video/Hero.mp4" type="video/mp4" />
+          <source src="/video/hero.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
