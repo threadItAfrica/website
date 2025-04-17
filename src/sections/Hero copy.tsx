@@ -10,8 +10,7 @@ import { SearchBar } from "@/components/SearchBar";
 
 const Hero = async () => {
   return (
-    <section className="w-full min-h-screen flex flex-row justify-center items-center bg-[#005A56] text-white text-center px-20 relative overflow-hidden">
-
+    <section className="container mx-auto w-full h-full lg:my-8 flex min-h-[400px] flex-col justify-center items-center relative">
       {/* Decorative illustrations */}
       <Image
         src={hanger}
@@ -39,9 +38,9 @@ const Hero = async () => {
         className="hidden md:block absolute top-1/2 left-20 w-20 h-20 -translate-x-1/2 translate-y-1/2 opacity-80"
       />
 
-      <div className="w-full md:w-[60%] mx-auto h-auto p-6  ">
+      <div className="w-full md:w-[70%] mx-auto h-auto p-6 rounded-xl bg-secondary">
         <video
- className="w-full h-full min-h-[60vh] object-cover rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.3)]"
+          className="w-full h-full min-h-[60vh] object-cover"
           autoPlay
           muted
           loop
@@ -53,16 +52,10 @@ const Hero = async () => {
         </video>
       </div>
       <div className="flex flex-col items-center justify-center w-full md:w-[60%] -mt-10">
-        <div className=" tet-center w-fit mx-center text-white py-4 px-8 rounded-xl">
-        <p className="text-md md:text-5xl text-inherit font-Thicccboi">
-        What you wear can change everything - 
-<br /><span className="block mt-4 md:mt-6 text-md md:text-4xl text-[#E5D170]">Hi Threadies,</span>
-
+        <div className="bg-tertiary tet-center w-fit mx-center text-white py-4 px-8 rounded-xl">
+          <p className="text-md md:text-4xl text-inherit">
+            Your sustainable style guide.
           </p>
-
-          <p className="text-md md:text-[1.25rem] text-inherit font-lato w-full md:w-2/4 text-center mx-auto">
-         Look good. do good. </p>
-
         </div>
         <SearchBar />
       </div>

@@ -12,6 +12,12 @@ export default {
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
         openSans: ['Open Sans', 'sans-serif'],
+        sanspro: ['sanspro', 'sans-serif'],
+        robecha: ['robecha', 'sans-serif'],
+        unisans: ['uni sans', 'sans-serif'],
+        DMSans: ['DMSans', 'sans-serif'],
+        Thicccboi: ['Thicccboi', 'sans-serif'],
+        lato: ['lato', 'sans-serif']
       },
       colors: {
         primary: "#006838",
