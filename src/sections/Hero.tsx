@@ -57,7 +57,7 @@ const Hero = () => {
             <br />
          can change everything
             <br />
-            <span className="block mt-2 md:mt-2 text-2xl md:text-4xl text-[#E5D170]">
+            <span className="block mt-3 text-2xl md:text-4xl text-[#E5D170]">
               Hi Threadies,
             </span>
           </p>
@@ -65,7 +65,7 @@ const Hero = () => {
         
      
 
-          <p className="mt-1 text-md md:text-[1.05rem] text-inherit font-lato w-full md:w-2/4 text-center mx-auto">
+          <p className=" mt-[-8] text-md md:text-[1.05rem] text-inherit font-lato w-full md:w-2/4 text-center mx-auto">
             Look good. Do good.
           </p>
         </div>
@@ -83,7 +83,7 @@ const Hero = () => {
       <Image
         src={hat}
         alt="decoration"
-        className="block absolute top-74 right-10 w-16 h-16 translate-x-1/2 translate-y-1/2 opacity-80 z-[-1] lg:z-[0]"
+        className="block absolute top-50 right-10 w-16 h-16 translate-x-1/2 translate-y-1/2 opacity-80 z-[-1] lg:z-[0]"
       />
       <Image
         src={recycle}
