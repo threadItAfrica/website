@@ -10,7 +10,9 @@ import { SearchBar } from "@/components/SearchBar";
 
 const Hero = async () => {
   return (
-    <section className="w-full min-h-screen flex flex-col gap-5 lg:flex-row justify-center items-center bg-[#005A56] text-white text-center px-2 lg:px-20 relative overflow-hidden ">
+    <section className="w-full h-[auto] lg:min-h-screen flex flex-col gap-5 lg:flex-row justify-center items-center bg-[#005A56] text-white text-center py-4
+
+ px-2 lg:px-20 relative overflow-hidden ">
 
       {/* Decorative illustrations */}
       <Image
@@ -41,7 +43,7 @@ const Hero = async () => {
 
       
         <video
- className="w-[90%] lg:w-[50%] h-[100%]  object-cover rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.3)]"
+ className="w-[90%] lg:w-[50%] h-[auto]  object-cover rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.3)]"
           autoPlay
           muted
           loop
