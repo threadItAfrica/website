@@ -10,7 +10,7 @@ import { SearchBar } from "@/components/SearchBar";
 
 const Hero = async () => {
   return (
-    <section className="w-full h-[auto] lg:min-h-screen flex flex-col gap-5 lg:flex-row justify-center items-center bg-[#005A56] text-white text-center py-4
+    <section className="w-full h-[auto] lg:min-h-screen flex flex-col gap-5 lg:flex-row justify-center items-center bg-[#005A56] text-white text-center py-6
 
  px-2 lg:px-20 relative overflow-hidden ">
 
@@ -56,7 +56,7 @@ const Hero = async () => {
         </div>
       <div className="flex flex-col items-center justify-center w-full md:w-[80%] ">
         <div className=" tet-center w-fit mx-center text-white py-4 px-8 rounded-xl">
-        <p className="text-3xl md:text-5xl text-inherit font-Thicccboi">
+        <p className="text-2xl md:text-5xl text-inherit font-Thicccboi">
         What you wear<br />  can change everything - 
 <br /><span className="block mt-4 md:mt-6 text-2xl md:text-4xl text-[#E5D170]">Hi Threadies,</span>
 
