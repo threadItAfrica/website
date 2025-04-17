@@ -26,10 +26,7 @@ const Hero = () => {
   }, []);
 
   // Example category title to demonstrate conditional text coloring
-  const category = {
-    title: "Sustainability for Fashion Brands",
-  };
-
+  
 
   return (
     <section className="w-full h-auto lg:min-h-screen flex flex-col gap-5 lg:flex-row justify-center items-center bg-[#005A56] text-white text-center py-10 px-2 lg:px-20 relative overflow-hidden">
