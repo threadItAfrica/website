@@ -1,121 +1,140 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { client } from "@/sanity/client"; // Import your Sanity client
-import { Category } from "@/utils/interface";
 import Link from "next/link";
+// import Image from "next/image";
+import aboutUsMainImage from "@/assets/images/aboutUsImage.png"; // Import your image
+import aboutImage from "@/assets/images/aboutImage1.png";
+import missionImage from "@/assets/images/save_the_world2.jpg";
+import SDGTab from "@/components/SDGTabs";
 
 async function About() {
-  // Fetch categories from Sanity
-  const categories: Category[] = await client.fetch(
-    `*[_type == "category"]|order(_createdAt asc){
-        _id,
-        title,
-        description,
-        slug
-      }`
-  );
-
   return (
     <main>
       <Header />
-      <div className="mt-[5rem] md:mt-[10rem] w-full md:w-[80%] mx-auto  max-w-[2024px] container p-4">
-        {/* About Us Section */}
-        <div className=" mx-auto md:min-h-[60vh] flex flex-col lg:flex-row justify-center items-center">
-          {/*  <div className="lg:w-1/2 h-[80vh] bg-cover bg-no-repeat bg-center rounded-lg mb-8 lg:mb-0"></div> */}
+      <div className="relative w-full">
+        <div className=" bg-[#005A56] w-full h-fit relative overflow-hidden">
+          {/* golden balls */}
+          
 
-          <div className="w-full lg:w-1/2 md:text-center">
-            <h1 className="text-lg md:text-2xl font-[600] mb-4 border-b-[1px] border-gray-500">
-              About Us
-            </h1>
-            <p className="text-lg text-gray-700 mb-4">
-              Welcome to Thread It, your go-to blog for the latest trends in
-              fashion, sustainability, and eco-friendly living. Our mission is
-              to inspire and educate our readers on how to make conscious
-              choices that positively impact the world.
-            </p>
-            <p className="text-lg text-gray-700 mb-4">
-              At Thread It, we believe that fashion can be both stylish and
-              sustainable. We are dedicated to bringing you the best in
-              eco-friendly fashion, sustainable living tips, and the latest
-              trends in the industry.
-            </p>
-            <p className="text-lg text-gray-700">
-              Join us on our journey to make the world a better place, one
-              thread at a time.
-            </p>
-          </div>
-        </div>
+          {/* text and image container */}
+          <div className="text-white flex flex-col items-center justify-center w-fit h-full relative z-10 py-8">
+            {/* container to resize texts and make responsive */}
+            <div className="w-full md:w-[80%] lg:w-[60%] xl:w-[40%] h-fit text-center py-6 px-4">
+              <h1 className="text-inherit text-md md:text-[3rem] capitalize font-[600] leading-snug">
+                Be the change you want to see - Hi Threadies,
+              </h1>
+              <p className="text-inherit font-[500] leading-loose">
+                Fashion isn’t just about looking good anymore. Well… it can be.
+                And that’s totally fine. But it can also mean something more. It
+                can be a force for good. It can feel good and do good. That’s
+                what Threadit is all about. Wanna be a part of it?
+              </p>
+            </div>
 
-        {/* Brand Vision Section */}
-        <div className="flex flex-col-reverse lg:flex-row-reverse justify-center items-center my-4">
-          <div className="w-full lg:w-1/2 text-gray-900 rounded-lg my-8 lg:ml-8">
-            <h2 className="text-lg md:text-2xl font-[600] mb-4 border-b-[1px] border-gray-500 text-secondary">
-              Brand Vision
-            </h2>
-            <p className="text-lg mb-4">
-              To be the leading voice shaping the future of sustainable fashion
-              in Africa. We aim to become an impact-driven media platform that
-              promotes mindful fashion consumption while uplifting local
-              designers and fostering community engagement. Thank you for being
-              a part of our journey. Together, we can make a difference.
-            </p>
-          </div>
-          <div className="w-full md:w-1/2 h-[40vh] md:h-[60vh] border bg-[url('../assets/images/save_the_world.jpg')] bg-contain bg-no-repeat bg-center rounded-lg"></div>
-        </div>
-
-        {/* Brand Mission Section */}
-        <div className="flex flex-col-reverse lg:flex-row justify-center items-center mb-16">
-          <div className="w-full md:w-1/2 text-gray-900 rounded-lg my-8 lg:mr-8">
-            <h2 className="text-lg md:text-2xl font-[600] mb-4 border-b-[1px] border-gray-500 text-secondary">
-              Brand Mission
-            </h2>
-            <p className="text-lg mb-4">
-              Our mission is to reshape Africa’s fashion narrative by
-              championing sustainable practices through media, education, and
-              community-driven initiatives.
-            </p>
-            <p className="text-lg">
-              We empower individuals to make informed choices, support ethical
-              brands, and take action toward a more sustainable future.
-            </p>
-            <p className="text-lg">
-              We believe every small choice drives big change, starting with
-              awareness and leading to action.
-            </p>
-          </div>
-          <div className="w-full md:w-1/2 h-[40vh] md:h-[50vh] border bg-[url('../assets/images/africa.jpeg')] bg-contain bg-no-repeat bg-center rounded-lg"></div>
-        </div>
-
-        {/* Blog Sections Explanation */}
-        <div className="flex flex-col justify-center items-center my-16 lg:min-h-[80vh]">
-          <h2 className="text-lg md:text-2xl  font-[600] mb-8 text-secondary">
-            Our Blog Sections
-          </h2>
-
-          <div className="flex flex-wrap justify-center gap-8">
-            {categories.map((category) => (
-              <div
-                key={category._id}
-                className="p-6  rounded-lg shadow-lg max-w-[500px]"
+            {/* Button */}
+            <div className="w-full  xl:w-[40%] text-center py-8 px-4">
+              <Link
+                href="#our-story"
+                className="text-white py-2 px-4 border-white border-[1px] rounded-full w-fit mx-auto hover:bg-white hover:text-[#005A56] transition-all flex items-center gap-2"
               >
-                <h3 className="text-lg md:text-xl font-[500] mb-4 text-gray-900">
-                  {category.title}
-                </h3>
-                <p className="text-lg text-gray-700 my-8">
-                  {category.description}
-                </p>
+                <span className="text-md md:text-lg font-[600]">Read more</span>
+              </Link>
+            </div>
 
-                <Link
-                  href={`/postList/${category.slug.current}`}
-                  className=" bg-secondary rounded-md px-4 py-2 text-white"
-                >
-                  Read Articles
-                </Link>
-              </div>
-            ))}
+            {/* Image */}
+            {/* <div className="w-full md:w-[80%] lg:w-[60%] xl:w-[40%]"> */}
+
+            <div
+              style={{ backgroundImage: `url(${aboutUsMainImage.src})` }}
+              className="w-[600px] h-[400px] bg-contain bg-center bg-no-repeat rounded-xls -mb-8"
+            ></div>
+            {/* </div> */}
           </div>
         </div>
+
+        {/* Our story section */}
+        
+        <section
+          id="our-story"
+          className=" bg-white text-gray-700 py-6 px-60 w-full   mx-auto container "
+        >
+          {[
+            {
+              title: "Our Story",
+              subtitle: "Why did we start threadit?",
+              text: `Threadit started with a simple but essential question: How can sustainable fashion feel relevant to young people in Africa?
+              Fashion’s footprint is huge. It contributes to climate change, pollution, and unsafe working conditions around the world.
+              In Africa, this impact shows up in unique ways. We see it in the overflow of secondhand clothes in our markets and the limited infrastructure for textile waste and recycling.
+              That’s where Threadit comes in. A platform committed to making sustainability make sense in the context we live, dress, and create in. We explore sustainable fashion through a lens shaped by culture, creativity, and lived experience.
+              Through content, community, and storytelling, we’re bringing sustainability closer to home.`,
+              image: aboutImage,
+            },
+            {
+              title: "Our Mission",
+              subtitle:
+                "We are on a mission to promote sustainable fashion in Africa",
+              text: `Our mission is to make sustainable fashion feel relevant, relatable, and rooted in culture and everyday choices.
+              We reshape the fashion narrative in Africa by championing sustainable practices through media, education, and community-driven initiatives.
+              We empower individuals to make informed choices, support ethical brands, and take action toward a more sustainable future.`,
+              image: missionImage,
+            },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className={`flex flex-col md:flex-row gap-8 items-center justify-center ${index === 1 ? "md:flex-row-reverse" : ""}`}
+            >
+              <div className="w-full md:w-[80%] ld:w-[60%] h-fit mx-auto my-8">
+                <h1 className="text-[#005A56] font-[600] text-md uppercase flex items-center gap-4 leading-relaxed">
+                  <span className="bg-[#005A56] w-[3rem] h-[2px]"></span>
+                  {item.title}
+                </h1>
+                <h2 className="text-inherit text-[2rem] capitalize font-[600] leading-relaxed">
+                  {item.subtitle}
+                </h2>
+                <p className="text-inherit font-[400] leading-loose text-gray-400">
+                  {item.text}
+                </p>
+              </div>
+              <div
+                style={{ backgroundImage: `url(${item.image.src})` }}
+                className="w-1/2 h-[500px] bg-contain bg-no-repeat bg-center rounded-xls hidden md:block"
+              ></div>
+            </div>
+            
+          ))}
+
+          {/* SDG Section */}
+          <div className="bg-gray-100 py-8">
+            <div className="w-full md:w-[80%] ld:w-[60%] h-fit mx-auto my-8">
+              <h1 className="text-tertiary font-[600] text-md uppercase flex items-center gap-4 leading-relaxed">
+                <span className="bg-tertiary w-[3rem] h-[2px]"></span>
+                Our Commitment to The Global Goals
+              </h1>
+              <h2 className="text-inherit text-[2rem] capitalize font-[600] leading-relaxed">
+                Aligning with United Nations SDGs for Greater Impact
+              </h2>
+              <p className="text-inherit font-[400] leading-loose text-gray-400">
+                At Threadit, our work is guided by the United Nations
+                Sustainable Development Goals (SDGs)—a global blueprint for a
+                better future. As we grow, these goals help shape the stories we
+                tell, the communities we support, and the impact we hope to
+                make. We focus on three key goals:
+              </p>
+
+              <Link
+                href="https://sdgs.un.org/2030agenda"
+                target="_blank"
+                className="mt-4 hover:text-tertiary hover:bg-transparent py-2 px-4 border-tertiary border-[1px] rounded-full w-fit bg-tertiary text-white transition-all flex items-center gap-2"
+              >
+                <span className="text-md md:text-lg font-[600]">2030 Agenda for Sustainable Development</span>
+              </Link>
+            </div>
+
+            <SDGTab />
+          </div>
+        </section>
       </div>
+      
       <Footer />
     </main>
   );
