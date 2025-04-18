@@ -8,7 +8,7 @@ import missionImage from "@/assets/images/save_the_world2.jpg";
 import SDGTab from "@/components/SDGTabs";
 import { Any } from "next-sanity";
 
-export const P = ({ children }: { children: Any }) => (
+const P = ({ children }: { children: Any }) => (
   <p className="py-[1px]">{children}</p>
 );
 
