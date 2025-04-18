@@ -193,6 +193,7 @@ async function About() {
             <SDGTab />
         </div>
       </div>
+      
       <Footer />
     </main>
   );

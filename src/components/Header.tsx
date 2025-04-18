@@ -5,6 +5,7 @@ import { Spiral as Menu } from "hamburger-react";
 import Link from "next/link";
 import { useModal } from "@/context/ModalContext";
 import logo from "@/assets/images/logo.svg";
+import { FaTwitter, FaFacebook, FaInstagram } from "react-icons/fa"; // Import social media icons
 
 const Header = () => {
   const [isOpen, setMenuOpen] = React.useState(false);
@@ -27,13 +28,19 @@ const Header = () => {
     { title: "Sustainability", href: "/postList/sustainability-for-fashion-brands" },
     { title: "Eco Trends", href: "/postList/eco-trends-and-innovations" },
     { title: "African History", href: "/postList/african-fashion-history" },
-    { title: "About", href: "/about" },
+  ];
+
+  // Social media links
+  const socialLinks = [
+    { href: "https://twitter.com", icon: <FaTwitter /> },
+    { href: "https://facebook.com", icon: <FaFacebook /> },
+    { href: "https://instagram.com", icon: <FaInstagram /> },
   ];
 
   return (
     <nav
-      className={`w-full z-50 px-2 sm:px-4 md:px-10 transition-all duration-300 sticky top-0 ${
-        isScrolled ? "bg-[#f3f4f6] shadow-lg py-1 md:py-2" : "bg-white py-2 md:py-4"
+      className={`w-full z-50 px-10 transition-all duration-300 sticky top-0 ${
+        isScrolled ? "bg-white shadow-lg py-1 md:py-2" : "bg-white py-2 md:py-4"
       }`}
     >
       <div className="w-full mx-auto">
@@ -54,7 +61,7 @@ const Header = () => {
               />
             </Link>
 
-            {/* Navigation Links - Hidden on Mobile, Visible on lg and Up */}
+            {/* Navigation Links (excluding About) - Hidden on Mobile, Visible on 2xl and Up */}
             <div
               className={`hidden lg:flex flex-row flex-wrap ${
                 isScrolled ? "space-x-1 md:space-x-2" : "space-x-2 md:space-x-4"
@@ -78,45 +85,66 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Right Side: Hamburger Menu (Mobile) and Button (lg and Up) */}
+          {/* Right Side: Hamburger Menu (Mobile), About Link, Social Links, and Newsletter Button */}
           <div className="flex items-center space-x-2">
-            {/* Hamburger Menu Button - Visible below lg */}
-            <button onClick={toggleMenu} className="lg:hidden" aria-label="Toggle Menu">
-              <Menu 
-                toggled={isOpen} 
-                toggle={setMenuOpen} 
-                color={"black"} 
-                size={isScrolled ? 20 : 24}
-              />
-            </button>
+            {/* About Link and Social Media Links - Visible on 2xl and Up, Hidden when scrolled */}
+            <div
+              className={`hidden items-center space-x-2 ${
+                isScrolled ? "2xl:hidden" : "2xl:flex"
+              }`}
+            >
+              {/* About Link */}
+              <Link
+                href="/about"
+                className="flex items-center space-x-1 hover:text-[#E5D170] transition-all duration-200 hover:bg-[#005A56] hover:rounded-md hover:shadow-md whitespace-nowrap text-gray-900 text-sm px-2 inline-block py-1 md:py-0 font-[600]"
+              >
+                About
+              </Link>
 
-            {/* Right Button - Visible on lg and Up */}
-            <div className="hidden lg:flex items-center">
+              {/* Social Media Links */}
+              {socialLinks.map((link, index) => (
+                <Link
+                  key={index}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center hover:text-[#E5D170] transition-all duration-200 hover:bg-[#005A56] hover:rounded-md hover:shadow-md text-gray-900 text-sm px-2 inline-block py-1 md:py-0"
+                >
+                  {link.icon}
+                </Link>
+              ))}
+            </div>
+
+            {/* Newsletter Button - Visible on 2xl and Up */}
+            <div className="hidden 2xl:flex items-center">
               <Button onClick={() => setIsOpen(true)} />
             </div>
+
+            {/* Hamburger Menu Button - Visible below 2xl */}
+            <button onClick={toggleMenu} className="2xl:hidden">
+              <Menu toggled={isOpen} toggle={setMenuOpen} color={"black"} />
+            </button>
           </div>
         </div>
 
-        {/* Mobile Dropdown Menu - Visible below lg */}
+        {/* Mobile Dropdown Menu - Visible below 2xl */}
         <div
           className={`lg:hidden bg-gray-50 border-t border-gray-200 overflow-hidden transition-all duration-300 ${
             isOpen ? "max-h-screen opacity-100 py-3" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="flex flex-col">
-            {sectionLinks.map((item, index) => (
-              <Link
-                key={index}
-                href={item.href}
-                onClick={toggleMenu}
-                className="block px-4 py-2 text-inherit hover:bg-green-50 transition-colors duration-200"
-              >
-                {item.title}
-              </Link>
-            ))}
-            <div className="px-4 py-3 mt-2">
-              <Button onClick={() => setIsOpen(true)} />
-            </div>
+          {sectionLinks.map((item, index) => (
+            <Link
+              key={index}
+              href={item.href}
+              onClick={toggleMenu}
+              className="block px-6 py-3 text-inherit hover:bg-green-50"
+            >
+              {item.title}
+            </Link>
+          ))}
+          <div className="pl-4">
+            <Button onClick={() => setIsOpen(true)} />
           </div>
         </div>
       </div>

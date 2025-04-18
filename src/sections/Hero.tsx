@@ -10,6 +10,7 @@ import needle from "@/assets/illustrations/needle.png";
 import recycle from "@/assets/illustrations/recycle.png";
 import { SearchBar } from "@/components/SearchBar";
 
+
 const Hero = () => {
   const videoRef = React.useRef<HTMLVideoElement>(null);
   const [showPoster, setShowPoster] = React.useState(true);
