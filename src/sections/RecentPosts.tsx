@@ -23,7 +23,7 @@ export const RecentPosts = async () => {
   const posts: SanityDocument[] = await client.fetch(QUERY);
 
   return (
-    <section className="w-full md:w-[90%] lg:w-[80%] container mx-auto py-6 md:py-10 px-4 md:px-0">
+    <section className="max-w-[2024px] w-full md:w-[90%] lg:w-[80%] container mx-auto py-6 md:py-10 px-4 md:px-0">
       <h2 className="text-xl md:text-2xl font-[600] text-gray-800">Most Recent Posts</h2>
       <div className="relative">
         {/* Carousel Container */}

@@ -27,7 +27,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="w-full h-[auto] lg:min-h-screen flex flex-col gap-5 lg:flex-row justify-center items-center bg-tertiary text-white text-center py-6 px-2 lg:px-20 relative overflow-hidden">
+    <section className="max-w-[2024px] mx-auto w-full h-[auto] lg:min-h-screen flex flex-col gap-5 lg:flex-row justify-center items-center text-white text-center py-6 px-2 lg:px-20 relative overflow-hidden">
 
       {/* Decorative illustrations */}
       <Image
@@ -56,7 +56,7 @@ const Hero = () => {
         className="hidden md:block absolute top-1/2 left-20 w-20 h-20 -translate-x-1/2 translate-y-1/2 opacity-80"
       />
      
-      <div className="w-[90%] max-w-4xl aspect-video rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.3)] relative">
+      <div className="w-[90%] max-w-5xl aspect-video rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.3)] relative">
         {showPoster && (
           <div className="absolute inset-0 z-10 rounded-xl">
             <Image 

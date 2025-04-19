@@ -51,11 +51,11 @@ const Header = () => {
 
   return (
     <nav
-      className={`w-full z-50 px-3 md:px-4 transition-all duration-300 sticky top-0 ${
+      className={`w-full z-50 px-3 md:px-2 lg:px-4 transition-all duration-300 sticky top-0 ${
         isScrolled ? "bg-white shadow-lg py-1 md:py-2" : "bg-white py-2 md:py-4"
       }`}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[90%] mx-auto">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0" onClick={handleLinkClick}>
@@ -73,7 +73,7 @@ const Header = () => {
           {/* Desktop Navigation - Hidden on mobile, visible on lg and up */}
           <div className="hidden lg:flex items-center justify-between flex-grow ml-4 xl:ml-8">
             {/* Section Links */}
-            <div className="flex flex-wrap gap-1 md:gap-2 lg:gap-3 items-center">
+            <div className="flex flex-wrap gap-1 md:gap-1 xl:gap-3 items-center">
               {sectionLinks.map((item, index) => (
                 <Link
                   key={index}
@@ -81,7 +81,7 @@ const Header = () => {
                   className={`hover:text-[#E5D170] transition-all duration-200 hover:bg-[#005A56] hover:rounded-md hover:shadow-md whitespace-nowrap ${
                     isScrolled
                       ? "text-gray-800 text-xs md:text-sm px-2 py-1"
-                      : "text-gray-900 text-sm px-3 py-2"
+                      : "text-gray-900 text-sm px-2 py-2"
                   } font-semibold`}
                 >
                   {item.title}
@@ -104,7 +104,7 @@ const Header = () => {
             {/* Social Links and Newsletter Button */}
             <div className="flex items-center gap-2 lg:gap-3">
               {/* Social Media Links */}
-              <div className="hidden md:flex items-center gap-1 lg:gap-2">
+              <div className="hidden xl:flex items-center gap-1 lg:gap-2">
                 {socialLinks.map((link, index) => (
                   <Link
                     key={index}
