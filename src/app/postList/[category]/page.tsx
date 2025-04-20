@@ -6,9 +6,9 @@ import Footer from "@/components/Footer";
 import { Card } from "@/components/postCard";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { LuArrowLeftToLine } from "react-icons/lu";
-import sustainability from "@/assets/images/sustainability.png"; // Fallback image
+import sustainability from "@/assets/images/sustainability_image.jpg"; // Fallback image
 import EcoTrends from "@/assets/images/eco_trends.png"; // Fallback image
-import GreenFashion from "@/assets/images/green_fashion.png"; // Fallback image
+import GreenFashion from "@/assets/images/green_fashion_image.png"; // Fallback image
 import AfricanFashion from "@/assets/images/arican_fashion.png"; // Fallback image
 
 const POSTS_PER_PAGE = 12;
