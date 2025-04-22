@@ -17,9 +17,25 @@ import { PostTimeEstimator } from "@/components/PostTimeEstimator";
 import { GoDotFill } from "react-icons/go";
 import { mainUrl } from "@/utils/links";
 import { BodyFormatter } from "@/components/BodyFormatter";
-import { incrementViews } from "@/utils/updateViews";
-// import { GrView } from "react-icons/gr";
+import { TableOfContents } from "@/components/TableOfContents";
 import Link from "next/link";
+
+interface SanityBlock {
+  _type: string;
+  style?: string;
+  children?: Array<{
+    _type: string;
+    text: string;
+  }>;
+}
+
+// Function to extract headers from Sanity body
+const extractHeaders = (body: SanityBlock[]) => {
+  if (!body) return [];
+  return body
+    .filter((block) => block.style?.startsWith("h"))
+    .map((block) => block.children?.[0]?.text || "");
+};
 
 const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]{
   ...,
@@ -62,9 +78,7 @@ export default async function PostPage({
     );
   }
 
-  if (post) {
-    incrementViews(post._id);
-  }
+  const headers = extractHeaders(post.body);
 
   return (
     <>
@@ -110,9 +124,11 @@ export default async function PostPage({
             </p>
           </div> */}
 
-          <div className="my-8 w-full lg:w-[60%] m-auto px-4">
+          <div className="mb-8 w-full md:w-[80%] lg:w-[70%] xl:w-[60%] m-auto px-4">
+          
+
             <div className=" flex items-center gap-4">
-              <p className="w-fit text-sm font-[500] text-gray-900 bg-[#fff8ec] rounded-3xl px-4 py-1 my-6">
+              <p className="w-fit text-sm font-[500] text-gray-900 bg-[#fff8ec] rounded-3xl md:px-4 py-1 my-6">
                 {post.categories[0].title}
               </p>
               <PostTimeEstimator body={post.body} />
@@ -125,27 +141,32 @@ export default async function PostPage({
                 />
               </span>
 
-              <div> 
-              {/* POST TITLE */}
-              <h1 className="font-bold lg:font-[500]  text-xl lg:text-4xl">
-                {post.title}
-              </h1>
+              <div>
+                {/* POST TITLE */}
+                <h1 className="font-bold lg:font-[500]  text-xl lg:text-4xl">
+                  {post.title}
+                </h1>
 
-            <div className="flex gap-4 items-center">
-              <Link href={`/author/${post.author.slug.current}`}>
-                <div className="flex gap-2 items-center">
-                  <IoPerson />
-                  <p className="text-md text-gray-500 font-poppins hover:underline">
-                    {post.author.name}
+                <div className="flex gap-4 items-center">
+                  <Link href={`/author/${post.author.slug.current}`}>
+                    <div className="flex gap-2 items-center">
+                      <IoPerson />
+                      <p className="text-md text-gray-500 font-poppins hover:underline">
+                        {post.author.name}
+                      </p>
+                    </div>
+                  </Link>
+                  <GoDotFill />
+                  <p className=" text-gray-500 my-4">
+                    <DateFormatter length="long" dateString={post.publishedAt} />
                   </p>
                 </div>
-              </Link>
-              <GoDotFill />
-              <p className=" text-gray-500 my-4">
-                <DateFormatter length="long" dateString={post.publishedAt} />
-              </p>
-              
-            </div>
+                <span className="md:hidden flex gap-2 mt-2">
+                  <Socials
+                    title={post.slug.current}
+                    postUrl={`${mainUrl}/post/${post.slug.current}`}
+                  />
+                </span>
               </div>
             </div>
             <div className="my-4 lg:mb-8">
@@ -162,6 +183,10 @@ export default async function PostPage({
                   height={1310}
                 />
               )}
+            </div>
+            <div>
+                {/* Table of Contents */}
+            <TableOfContents headers={headers} />
             </div>
             <hr />
             {/* POST BODY */}
