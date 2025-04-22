@@ -18,7 +18,7 @@ import { GoDotFill } from "react-icons/go";
 import { mainUrl } from "@/utils/links";
 import { BodyFormatter } from "@/components/BodyFormatter";
 import { incrementViews } from "@/utils/updateViews";
-import { GrView } from "react-icons/gr";
+// import { GrView } from "react-icons/gr";
 import Link from "next/link";
 
 const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]{
@@ -104,11 +104,11 @@ export default async function PostPage({
         <Header />
         <div className="container mx-auto  max-w-[2024px]  py-4">
           {/* Number of views */}
-          <div className="mb-8 py-5 w-fit">
+          {/* <div className="mb-8 py-5 w-fit">
             <p className="text-md md:text-lg flex gap-2 items-center">
               <GrView /> <span className="font-[500]">{post.views || 0}</span>{" "}
             </p>
-          </div>
+          </div> */}
 
           <div className="my-8 w-full lg:w-[60%] m-auto px-4">
             <div className=" flex items-center gap-4">
@@ -118,14 +118,14 @@ export default async function PostPage({
               <PostTimeEstimator body={post.body} />
             </div>
             <div className="flex gap-6">
-              <span className="flex gap-2 mt-2">
+              <span className="hidden md:flex gap-2 mt-2">
                 <Socials
                   title={post.slug.current}
                   postUrl={`${mainUrl}/post/${post.slug.current}`}
                 />
               </span>
-              <div>
 
+              <div> 
               {/* POST TITLE */}
               <h1 className="font-bold lg:font-[500]  text-xl lg:text-4xl">
                 {post.title}
@@ -144,6 +144,7 @@ export default async function PostPage({
               <p className=" text-gray-500 my-4">
                 <DateFormatter length="long" dateString={post.publishedAt} />
               </p>
+              
             </div>
               </div>
             </div>

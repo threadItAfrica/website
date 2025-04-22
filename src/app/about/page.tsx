@@ -140,10 +140,10 @@ async function About() {
             >
               <div className="w-full md:w-[80%] ld:w-[60%] h-fit mx-auto my-8">
                 <h1 className="text-[#005A56] font-[600] text-md uppercase flex items-center gap-4 leading-relaxed">
-                  <span className="bg-[#005A56] w-[3rem] h-[2px]"></span>
+                  <span className="bg-[#005A56] w-[2rem] md:w-[3rem] h-[2px]"></span>
                   {item.title}
                 </h1>
-                <h2 className="text-inherit text-[2rem] capitalize font-[600] leading-relaxed">
+                <h2 className="text-inherit text-[2rem] capitalize font-[600] md:leading-relaxed">
                   {item.subtitle}
                 </h2>
                 <p className="text-inherit font-[400] leading-loose text-gray-400">
@@ -167,7 +167,7 @@ async function About() {
               <h2 className="text-inherit text-[2rem] capitalize font-[600] leading-relaxed">
                 Aligning with United Nations SDGs for Greater Impact
               </h2>
-              <p className="text-inherit font-[400] leading-loose text-gray-400">
+              <p className="text-inherit font-[400] leading-loose text-gray-400 py-2">
                 At Threadit, our work is guided by the United Nations
                 Sustainable Development Goals (SDGs)—a global blueprint for a
                 better future. As we grow, these goals help shape the stories we

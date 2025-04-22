@@ -27,7 +27,7 @@ export const SearchBar = () => {
   }
 
   return (
-    <div className="w-full max-w-[550px] lg:max-w-[400px] mt-6 ">
+    <div className="w-full max-w-[380px] lg:max-w-[400px] mt-6 ">
       <form onSubmit={handleSubmit(onSubmit)} className=" flex items-center justify-center border bg-white border-gray-300 rounded-lg p-2 w-full">
         <input
           {...register('searchQuery')}

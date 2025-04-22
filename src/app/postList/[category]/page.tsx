@@ -9,7 +9,7 @@ import { LuArrowLeftToLine } from "react-icons/lu";
 import sustainability from "@/assets/images/sustainability_image.jpg"; // Fallback image
 import EcoTrends from "@/assets/images/eco_trends.png"; // Fallback image
 import GreenFashion from "@/assets/images/green_fashion_image.png"; // Fallback image
-import AfricanFashion from "@/assets/images/arican_fashion.png"; // Fallback image
+import AfricanFashion from "@/assets/images/africa.jpeg"; // Fallback image
 
 const POSTS_PER_PAGE = 12;
 const POST_QUERY = `*[_type == "post" && $category in categories[]->slug.current]|order(publishedAt asc)[$start...$end]{
@@ -36,32 +36,35 @@ type PageProps = {
     page?: string;
   }>;
 };
-const TitleSection = ({category}: {category: string}) => (
+const TitleSection = ({ category }: { category: string }) => (
   <div
-  className="relative bg-cover bg-center text-white py-8 md:h-[20vh] conatiner  max-w-[2024px] mx-auto"
-  style={{
-    backgroundImage:
-      category === "sustainability-for-fashion-brands"
-        ? `url('${sustainability.src}')`
-        : category === "eco-trends-innovations"
-          ? `url('${EcoTrends.src}')`
-          : category === "green-fashion-101"
-            ? `url('${GreenFashion.src}')`
-            : category === "african-fashion-history"
-              ? `url('${AfricanFashion.src}')`
-              : "",
-  }}
->
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-black bg-opacity-65"></div>
+    className="relative bg-cover bg-center text-white py-8 md:h-[20vh] conatiner  max-w-[2024px] mx-auto"
+    style={{
+      backgroundImage:
+        category === "sustainability-for-fashion-brands"
+          ? `url('${sustainability.src}')`
+          : category === "eco-trends-innovations"
+            ? `url('${EcoTrends.src}')`
+            : category === "green-fashion-101"
+              ? `url('${GreenFashion.src}')`
+              : category === "african-fashion-history"
+                ? `url('${AfricanFashion.src}')`
+                : "",
+    }}
+  >
+    {/* Overlay */}
+    <div className="absolute inset-0 bg-black bg-opacity-65"></div>
 
-  <div className="relative w-full z-10 flex items-center justify-center h-full">
-    <p className="text-lg md:text-3xl capitalize py-2 px-4 mx-auto rounded-lg w-fit font-[500] mb-4">
-      {category.split("-").join(" ")} Posts
-    </p>
+    <div className="relative w-full z-10 flex items-center justify-center h-full">
+      <p className="text-lg md:text-3xl capitalize py-2 px-4 mx-auto rounded-lg w-fit font-[500] mb-4">
+        {category.split("-").join(" ")} Posts
+      </p>
+    </div>
   </div>
-</div>
-)
+);
+
+
+
 export default async function PostList({ params, searchParams }: PageProps) {
   // Await params to resolve the Promise
   const resolvedParams = await params;
@@ -84,13 +87,13 @@ export default async function PostList({ params, searchParams }: PageProps) {
     category: cat,
   });
 
-  console.log({cate: cat});
+  // console.log({cate: cat});
 
   if (!posts.length) {
     return (
       <main>
         <Header />
-        <TitleSection category={cat}/>
+        <TitleSection category={cat} />
         <section className="w-[80%] mx-auto mt-16 min-h-[80vh]">
           <p className="text-primary bg-white py-2 px-4 rounded-lg w-fit font-bold shadow-lg mb-4">
             {cat.split("-").join(" ").toLocaleUpperCase()}
@@ -107,9 +110,9 @@ export default async function PostList({ params, searchParams }: PageProps) {
   return (
     <main>
       <Header />
-      <TitleSection category={cat}/>
-    
-      <section className="container mt-[2vh] mx-auto lg:min-h-[90vh] flex flex-col justify-between">
+      <TitleSection category={cat} />
+
+      <section className="container mt-[2vh] mx-auto lg:min-h-[90vh] flex flex-col justify-between px-2">
         <div className="flex flex-wrap justify-evenly gap-4 w-full h-full">
           {posts.map((post: SanityDocument) => (
             <Link
@@ -123,71 +126,73 @@ export default async function PostList({ params, searchParams }: PageProps) {
         </div>
 
         {/* Pagination Tab */}
-        <div className="flex justify-between items-center gap-4 my-8">
-          <div>
-            {page > 1 && (
-              <Link
-                href={`/postList/${cat}?page=1}`}
-                className="text-white py-2 px-4 rounded-lg bg-primary hover:bg-primary-dark flex items-center gap-2"
-              >
-                <LuArrowLeftToLine className="w-6 h-6" />
-                Back to Page 1
-              </Link>
-            )}
-          </div>
-
-          <div className="flex justify-between items-center gap-4 ">
-            {/* Previous Button */}
-            {page > 1 && (
-              <Link
-                href={`/postList/${cat}?page=${page - 1}`}
-                className="text-white py-2 px-6 rounded-lg bg-primary hover:bg-primary-dark flex items-center gap-2"
-              >
-                <FaArrowLeft />
-                Previous
-              </Link>
-            )}
-
-            {/* Page Numbers */}
-            <div className="flex gap-2">
-              {Array.from(
-                { length: Math.ceil(totalPosts / POSTS_PER_PAGE) },
-                (_, index) => (
-                  <Link
-                    key={index + 1}
-                    href={`/postList/${cat}?page=${index + 1}`}
-                    className={`py-2 px-6 rounded-lg ${
-                      page === index + 1
-                        ? "border-[1px] border-primary text-primary"
-                        : "bg-gray-200 text-gray-700 hover:bg-primary hover:text-white"
-                    }`}
-                  >
-                    {index + 1}
-                  </Link>
-                )
+        <div className="flex justify-between items-center w-full">
+          <div className="flex justify-between items-center gap-4 my-8 w-full">
+            <div>
+              {page > 1 && (
+                <Link
+                  href={`/postList/${cat}?page=1}`}
+                  className="text-white py-2 px-4 rounded-lg bg-primary hover:bg-primary-dark flex items-center gap-2"
+                >
+                  <LuArrowLeftToLine className="w-6 h-6" />
+                  <span className="hidden md:block">Back to Page</span> 1
+                </Link>
               )}
             </div>
 
-            {/* Next Button */}
-            {page < Math.ceil(totalPosts / POSTS_PER_PAGE) && (
-              <Link
-                href={`/postList/${cat}?page=${page + 1}`}
-                className="text-white py-2 px-6 rounded-lg bg-primary hover:bg-primary-dark flex items-center gap-2"
-              >
-                Next
-                <FaArrowRight />
-              </Link>
-            )}
-          </div>
+            <div className="flex justify-between items-center gap-4 ">
+              {/* Previous Button */}
+              {page > 1 && (
+                <Link
+                  href={`/postList/${cat}?page=${page - 1}`}
+                  className="text-white py-2 px-6 rounded-lg bg-primary hover:bg-primary-dark flex items-center gap-2"
+                >
+                  <FaArrowLeft />
+                  <span className="hidden md:block">Previous</span>
+                </Link>
+              )}
 
-          <div className="">
-            <p className="text-sm lg:text-md flex justify-center items-center gap-2">
-              Page{" "}
-              <span className="px-2 flex justify-center items-center rounded-md border text-gray-500">
-                {page}
-              </span>{" "}
-              of {Math.ceil(totalPosts / POSTS_PER_PAGE)}
-            </p>
+              {/* Page Numbers */}
+              <div className="flex gap-2">
+                {Array.from(
+                  { length: Math.ceil(totalPosts / POSTS_PER_PAGE) },
+                  (_, index) => (
+                    <Link
+                      key={index + 1}
+                      href={`/postList/${cat}?page=${index + 1}`}
+                      className={`py-2 px-6 rounded-lg ${
+                        page === index + 1
+                          ? "border-[1px] border-primary text-primary"
+                          : "bg-gray-200 text-gray-700 hover:bg-primary hover:text-white"
+                      }`}
+                    >
+                      {index + 1}
+                    </Link>
+                  )
+                )}
+              </div>
+
+              {/* Next Button */}
+              {page < Math.ceil(totalPosts / POSTS_PER_PAGE) && (
+                <Link
+                  href={`/postList/${cat}?page=${page + 1}`}
+                  className="text-white py-2 px-6 rounded-lg bg-primary hover:bg-primary-dark flex items-center gap-2"
+                >
+                  <span className="hidden md:block">Next</span>
+                  <FaArrowRight />
+                </Link>
+              )}
+            </div>
+
+            <div className="hidden md:block">
+              <p className="text-sm lg:text-md flex justify-center items-center gap-2">
+                Page{" "}
+                <span className="px-2 flex justify-center items-center rounded-md border text-gray-500">
+                  {page}
+                </span>{" "}
+                of {Math.ceil(totalPosts / POSTS_PER_PAGE)}
+              </p>
+            </div>
           </div>
         </div>
       </section>

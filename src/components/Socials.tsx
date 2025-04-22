@@ -21,7 +21,7 @@ const Socials = ({ title, postUrl }: {postUrl: string, title: string }) => {
   };
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex md:flex-col gap-4">
       {/* Facebook */}
       <Link
         href={shareLinks.facebook}
