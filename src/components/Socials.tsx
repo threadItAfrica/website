@@ -27,7 +27,7 @@ const Socials = ({ title, postUrl }: {postUrl: string, title: string }) => {
         href={shareLinks.instagram}
         target="_blank"
         rel="noopener noreferrer"
-        className="bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:text-pink-600 text-white rounded-full h-10 w-10 flex justify-center items-center"
+        className="bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:text-gray-400 text-white rounded-full h-10 w-10 flex justify-center items-center"
       >
         <FaInstagram className="text-[1.2rem]" />
       </Link>
@@ -37,7 +37,7 @@ const Socials = ({ title, postUrl }: {postUrl: string, title: string }) => {
         href={shareLinks.twitter}
         target="_blank"
         rel="noopener noreferrer"
-        className="bg-gray-800 hover:text-blue-600 text-white rounded-full h-10 w-10 flex justify-center items-center"
+        className="bg-gray-800 hover:text-gray-400 text-white rounded-full h-10 w-10 flex justify-center items-center"
       >
         <FaXTwitter className="text-[1.2rem]" />
       </Link>
@@ -47,7 +47,7 @@ const Socials = ({ title, postUrl }: {postUrl: string, title: string }) => {
         href={shareLinks.linkedin}
         target="_blank"
         rel="noopener noreferrer"
-        className="bg-[#0E76A8] hover:text-blue-900 text-white rounded-full h-10 w-10 flex justify-center items-center"
+        className="bg-[#0E76A8] hover:text-gray-400 text-white rounded-full h-10 w-10 flex justify-center items-center"
       >
         <FaLinkedinIn className="text-[1.2rem]" />
       </Link>
@@ -57,7 +57,7 @@ const Socials = ({ title, postUrl }: {postUrl: string, title: string }) => {
         href={shareLinks.pinterest}
         target="_blank"
         rel="noopener noreferrer"
-        className="bg-[#E60023] hover:text-red-700 text-white rounded-full h-10 w-10 flex justify-center items-center"
+        className="bg-[#E60023] hover:text-gray-400 text-white rounded-full h-10 w-10 flex justify-center items-center"
       >
         <FaPinterestP className="text-[1.2rem]" />
       </Link>
