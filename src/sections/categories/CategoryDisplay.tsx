@@ -1,7 +1,7 @@
 import Link from "next/link";
 // import { FaArrowCircleRight } from "react-icons/fa";
 import { client } from "@/sanity/client";
-import AfricanFashionImage from "@/assets/images/africa.jpeg";
+import AfricanFashionImage from "@/assets/images/african_fashion_image.jpg";
 import EcoTrendsImage from "@/assets/images/eco_trends.png";
 import GreenFashionImage from "@/assets/images/green_fashion_image.png";
 import SustainabilityImage from "@/assets/images/sustainability_image.jpg";
@@ -52,9 +52,9 @@ export const CategoryDisplay = async ({
           {/* Category Header */}
           <Link href={`postList/${categoryData.slug.current}`} className="md:w-2/5">
             <div className="py-4 md:py-6 border-b w-full h-fit shadow-sm group hover:shadow-xl transition-shadow duration-300">
-              <div className="w-full h-40 sm:h-48 md:h-56 lg:h-64 mb-4 overflow-hidden">
+              <div className="w-full h-48 sm:h-48 md:h-56 lg:h-64 mb-4 overflow-hidden">
                 <div
-                  className="w-full h-full bg-contain md:bg-cover bg-center mx-auto transform transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-full bg-cover bg-no-repeat bg-center mx-auto transform transition-transform duration-300 group-hover:scale-105"
                   style={{
                     backgroundImage: `url('${
                       categoriesTitle[categoryData.title]?.src || AfricanFashionImage.src

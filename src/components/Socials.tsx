@@ -1,35 +1,35 @@
 "use client"; 
 import Link from "next/link"; 
-import { FaFacebook } from "react-icons/fa";
-import { FaXTwitter, FaLinkedinIn } from "react-icons/fa6";  
+import { FaInstagram } from "react-icons/fa";
+import { FaXTwitter, FaLinkedinIn, FaPinterestP } from "react-icons/fa6";  
 
 const Socials = ({ title, postUrl }: {postUrl: string, title: string }) => { 
 
   const shareLinks = {
-    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+    instagram: `https://www.instagram.com/share?url=${encodeURIComponent(
       postUrl
     )}`,
-
     twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(
       postUrl
     )}&text=${encodeURIComponent(title)}`,
-    
     linkedin: `https://www.linkedin.com/shareArticle?url=${encodeURIComponent(
       postUrl
     )}&title=${encodeURIComponent(title)}`,
-     
+    pinterest: `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(
+      postUrl
+    )}&description=${encodeURIComponent(title)}`,
   };
 
   return (
-    <div className="flex md:flex-col gap-4">
-      {/* Facebook */}
+    <div className="flex md:flex-col gap-2 md:gap-4">
+      {/* Instagram */}
       <Link
-        href={shareLinks.facebook}
+        href={shareLinks.instagram}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-[#3b5998] hover:text-blue-800"
+        className="bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:text-pink-600 text-white rounded-full h-10 w-10 flex justify-center items-center"
       >
-        <FaFacebook className="text-[1.2rem]" />
+        <FaInstagram className="text-[1.2rem]" />
       </Link>
 
       {/* Twitter */}
@@ -37,7 +37,7 @@ const Socials = ({ title, postUrl }: {postUrl: string, title: string }) => {
         href={shareLinks.twitter}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-gray-800 hover:text-blue-600"
+        className="bg-gray-800 hover:text-blue-600 text-white rounded-full h-10 w-10 flex justify-center items-center"
       >
         <FaXTwitter className="text-[1.2rem]" />
       </Link>
@@ -47,20 +47,20 @@ const Socials = ({ title, postUrl }: {postUrl: string, title: string }) => {
         href={shareLinks.linkedin}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-[#0E76A8] hover:text-blue-900"
+        className="bg-[#0E76A8] hover:text-blue-900 text-white rounded-full h-10 w-10 flex justify-center items-center"
       >
         <FaLinkedinIn className="text-[1.2rem]" />
       </Link>
 
-      {/* WhatsApp */}
-      {/* <Link
-        href={shareLinks.whatsapp}
+      {/* Pinterest */}
+      <Link
+        href={shareLinks.pinterest}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-green-500 hover:text-green-700"
+        className="bg-[#E60023] hover:text-red-700 text-white rounded-full h-10 w-10 flex justify-center items-center"
       >
-        < className="w-6 h-6" />
-      </Link> */}
+        <FaPinterestP className="text-[1.2rem]" />
+      </Link>
     </div>
   );
 };

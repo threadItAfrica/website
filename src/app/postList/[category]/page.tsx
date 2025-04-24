@@ -9,7 +9,7 @@ import { LuArrowLeftToLine } from "react-icons/lu";
 import sustainability from "@/assets/images/sustainability_image.jpg"; // Fallback image
 import EcoTrends from "@/assets/images/eco_trends.png"; // Fallback image
 import GreenFashion from "@/assets/images/green_fashion_image.png"; // Fallback image
-import AfricanFashion from "@/assets/images/africa.jpeg"; // Fallback image
+import AfricanFashion from "@/assets/images/african_fashion_image.jpg"; // Fallback image
 
 const POSTS_PER_PAGE = 12;
 const POST_QUERY = `*[_type == "post" && $category in categories[]->slug.current]|order(publishedAt asc)[$start...$end]{
@@ -38,7 +38,7 @@ type PageProps = {
 };
 const TitleSection = ({ category }: { category: string }) => (
   <div
-    className="relative bg-cover bg-center text-white py-8 md:h-[20vh] conatiner  max-w-[2024px] mx-auto"
+    className="relative bg-cover bg-center text-white py-8 md:h-[20vh] conatiner  mx-auto"
     style={{
       backgroundImage:
         category === "sustainability-for-fashion-brands"
@@ -112,22 +112,24 @@ export default async function PostList({ params, searchParams }: PageProps) {
       <Header />
       <TitleSection category={cat} />
 
-      <section className="container mt-[2vh] mx-auto lg:min-h-[90vh] flex flex-col justify-between px-2">
-        <div className="flex flex-wrap justify-evenly gap-4 w-full h-full">
+      <section className="max-w-[2024px] container mt-[2vh] mx-auto lg:min-h-[90vh] flex flex-col justify-between px-2">
+        <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 md:gap-6 w-fit mx-auto">
           {posts.map((post: SanityDocument) => (
             <Link
               key={post._id}
               href={`/post/${post.slug.current}`}
-              className="w-fit h-fit"
+              className="w-full h-full group transition-all duration-300 hover:shadow-xl rounded-lg hover:-translate-y-1"
             >
-              <Card post={post} />
+              <div className="overflow-hidden rounded-lg">
+                <Card post={post} />
+              </div>
             </Link>
           ))}
         </div>
 
         {/* Pagination Tab */}
         <div className="flex justify-between items-center w-full">
-          <div className="flex justify-between items-center gap-4 my-8 w-full">
+          <div className="flex justify-center items-center gap-4 my-8 w-full">
             <div>
               {page > 1 && (
                 <Link
@@ -154,7 +156,7 @@ export default async function PostList({ params, searchParams }: PageProps) {
 
               {/* Page Numbers */}
               <div className="flex gap-2">
-                {Array.from(
+                {/* {Array.from(
                   { length: Math.ceil(totalPosts / POSTS_PER_PAGE) },
                   (_, index) => (
                     <Link
@@ -166,25 +168,41 @@ export default async function PostList({ params, searchParams }: PageProps) {
                           : "bg-gray-200 text-gray-700 hover:bg-primary hover:text-white"
                       }`}
                     >
-                      {index + 1}
                     </Link>
                   )
-                )}
+                )} */}
+                <p className="px-2 md:py-2 md:px-6 rounded-lg  border-[1px] border-primary text-primary">
+                {page}
+                </p>
               </div>
 
               {/* Next Button */}
-              {page < Math.ceil(totalPosts / POSTS_PER_PAGE) && (
-                <Link
-                  href={`/postList/${cat}?page=${page + 1}`}
-                  className="text-white py-2 px-6 rounded-lg bg-primary hover:bg-primary-dark flex items-center gap-2"
-                >
-                  <span className="hidden md:block">Next</span>
-                  <FaArrowRight />
-                </Link>
-              )}
+              <div className="flex items-center gap-4">
+                <div className="hidden md:block text-gray-600">
+                  {page}/{Math.ceil(totalPosts / POSTS_PER_PAGE)}
+                </div>
+                {page < Math.ceil(totalPosts / POSTS_PER_PAGE) ? (
+                  <Link
+                    href={`/postList/${cat}?page=${page + 1}`}
+                    className="text-white py-2 px-6 rounded-lg bg-primary hover:bg-primary-dark flex items-center gap-2"
+                  >
+                    <span className="hidden md:block">Next</span>
+                    <FaArrowRight />
+                  </Link>
+                ) : (
+                  <button
+                    disabled
+                    className="text-gray-400 py-2 px-6 rounded-lg bg-gray-200 flex items-center gap-2 cursor-not-allowed"
+                  >
+                    <span className="hidden md:block">Next</span>
+                    <FaArrowRight />
+                  </button>
+                )}
+              </div>
             </div>
 
-            <div className="hidden md:block">
+            {/* Remove or comment out this section since we moved the page count */}
+            {/* <div className="hidden md:block">
               <p className="text-sm lg:text-md flex justify-center items-center gap-2">
                 Page{" "}
                 <span className="px-2 flex justify-center items-center rounded-md border text-gray-500">
@@ -192,7 +210,7 @@ export default async function PostList({ params, searchParams }: PageProps) {
                 </span>{" "}
                 of {Math.ceil(totalPosts / POSTS_PER_PAGE)}
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

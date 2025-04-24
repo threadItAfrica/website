@@ -31,7 +31,7 @@ export const RecentPosts = async () => {
           {posts.map((post) => (
             <div
               key={post._id}
-              className="group flex-shrink-0 h-fit w-[85%] sm:w-[45%] md:w-[calc(100%/3)] lg:w-[calc(100%/4)] xl:w-[calc(100%/5)] snap-center rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
+              className="group flex-shrink-0 h-fit w-[70%] sm:w-[45%] md:w-[calc(100%/3)] lg:w-[calc(100%/4)] xl:w-[calc(100%/5)] snap-center rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
             >
               <Link href={`/post/${post.slug.current}`}>
                 {/* Post Image */}

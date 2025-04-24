@@ -5,8 +5,8 @@ import { Spiral as Menu } from "hamburger-react";
 import Link from "next/link";
 import { useModal } from "@/context/ModalContext";
 import logo from "@/assets/images/logo.svg";
-import { FaTwitter, FaFacebook, FaInstagram } from "react-icons/fa";
-
+import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 const Header = () => {
   const [isOpen, setMenuOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
@@ -40,18 +40,18 @@ const Header = () => {
     { title: "Green Fashion", href: "/postList/green-fashion-101" },
     { title: "Sustainability", href: "/postList/sustainability-for-fashion-brands" },
     { title: "Eco Trends", href: "/postList/eco-trends-and-innovations" },
-    { title: "African History", href: "/postList/african-fashion-history" },
+    { title: "African Fashion History", href: "/postList/african-fashion-history" },
   ];
 
   const socialLinks = [
-    { href: "https://twitter.com", icon: <FaTwitter />, label: "Twitter" },
+    { href: "https://twitter.com", icon: <FaXTwitter />, label: "Twitter" },
     { href: "https://facebook.com", icon: <FaFacebook />, label: "Facebook" },
     { href: "https://instagram.com", icon: <FaInstagram />, label: "Instagram" },
   ];
 
   return (
     <nav
-      className={`w-full z-50 px-3 md:px-2 lg:px-4 transition-all duration-300 sticky top-0 ${
+      className={`w-full z-50 md:px-2 lg:px-4 transition-all duration-300 sticky top-0 ${
         isScrolled ? "bg-white shadow-lg py-1 md:py-2" : "bg-white py-2 md:py-4"
       }`}
     >
