@@ -1,3 +1,3 @@
 ##About ThreadIt
 
-#It is a sustainable fashion space.
+#It is a sustainable fashion space for everyone.
