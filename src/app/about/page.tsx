@@ -4,12 +4,12 @@ import Link from "next/link";
 // import Image from "next/image";
 import aboutUsMainImage from "@/assets/images/aboutUsImage.png"; // Import your image
 import aboutImage from "@/assets/images/aboutImage1.png";
-import missionImage from "@/assets/images/save_the_world2.jpg";
+import missionImage from "@/assets/images/save_the_world2.png";
 import SDGTab from "@/components/SDGTabs";
 import { Any } from "next-sanity";
 
-export const P = ({ children }: { children: Any }) => (
-  <p className="py-[1px]">{children}</p>
+const P = ({ children }: { children: Any }) => (
+  <p className="py-[.8rem]">{children}</p>
 );
 
 async function About() {
@@ -19,29 +19,29 @@ async function About() {
       <div className="relative w-full">
         <div className=" bg-tertiary w-full h-fit relative overflow-hidden">
           {/* golden balls */}
-          <div className="absolute -top-[90px] -right-[90px] w-[200px] h-[200px] rounded-full bg-secondary flex justify-center items-center"></div>
+          <div className="absolute -top-[90px] -right-[90px] w-[150px] h-[150px] md:w-[200px] md:h-[200px] rounded-full bg-secondary flex justify-center items-center"></div>
 
-          <div className="absolute -bottom-[90px] -left-[90px] w-[200px] h-[200px] rounded-full bg-secondary flex justify-center items-center"></div>
+          <div className="absolute -bottom-[90px] -left-[90px]  w-[150px] h-[150px] md:w-[200px] md:h-[200px] rounded-full bg-secondary flex justify-center items-center"></div>
 
           {/* text and image container */}
           <div className="text-white flex flex-col items-center justify-center w-fit h-full mx-auto relative z-10 py-8">
             {/* container to resize texts and make responsive */}
             <div className="w-full h-fit text-center py-8 px-4">
-              <h1 className="mb-4 text-inherit text-[2rem] md:text-[3rem] capitalize font-[600] leading-loose md:leading-snug">
+              <h1 className="mb-4 text-inherit text-[2rem] md:text-[3rem] capitalize font-[600] leading-tight md:leading-snug">
                 Be the change you want to see - <br />{" "}
                 <span className="text-secondary">Hi Threadies,</span>
               </h1>
               <p className="w-full md:w-[80%] lg:w-[60%] xl:w-[50%] mx-auto text-inherit font-[500] leading-loose">
-                <P>
+                <p>
                   Fashion isn’t just about looking good anymore. Well… it can
                   be. And that’s totally fine.
-                </P>{" "}
-                <P>
+                </p>{" "}
+                <p>
                   But it can also mean something more. It can be a force for
                   good. It can feel good and do good.
-                </P>{" "}
-                <P>That’s what Threadit is all about.</P> 
-                <P><strong>Wanna be a part of it?</strong></P>
+                </p>{" "}
+                <p>That’s what Threadit is all about.</p> 
+                <p><strong>Wanna be a part of it?</strong></p>
               </p>
             </div>
 
@@ -69,7 +69,7 @@ async function About() {
         {/* Our story section */}
         <div
           id="our-story"
-          className=" text-gray-700 py-6 px-4 w-full md:w-[80%] lg:w-[60%] mx-auto container "
+          className=" text-gray-700 py-6 px-4 w-full md:w-[80%] lg:w-[70%] xl:w-[60%] mx-auto container "
         >
           {[
             {
@@ -140,10 +140,10 @@ async function About() {
             >
               <div className="w-full md:w-[80%] ld:w-[60%] h-fit mx-auto my-8">
                 <h1 className="text-[#005A56] font-[600] text-md uppercase flex items-center gap-4 leading-relaxed">
-                  <span className="bg-[#005A56] w-[3rem] h-[2px]"></span>
+                  <span className="bg-[#005A56] w-[2rem] md:w-[3rem] h-[2px]"></span>
                   {item.title}
                 </h1>
-                <h2 className="text-inherit text-[2rem] capitalize font-[600] leading-relaxed">
+                <h2 className="text-inherit text-[2rem] capitalize font-[600] md:leading-relaxed">
                   {item.subtitle}
                 </h2>
                 <p className="text-inherit font-[400] leading-loose text-gray-400">
@@ -158,7 +158,7 @@ async function About() {
           ))}
 
           {/* SDG Section */}
-          <div className="bg-gray-100 py-8">
+          <div className="bg-transparent md:bg-white py-8">
             <div className="w-full md:w-[90%] lg:w-[60%] h-fit mx-auto my-8">
               <h1 className="text-tertiary font-[600] text-md uppercase flex items-center gap-4 leading-relaxed">
                 <span className="bg-tertiary w-[3rem] h-[2px]"></span>
@@ -167,12 +167,11 @@ async function About() {
               <h2 className="text-inherit text-[2rem] capitalize font-[600] leading-relaxed">
                 Aligning with United Nations SDGs for Greater Impact
               </h2>
-              <p className="text-inherit font-[400] leading-loose text-gray-400">
+              <p className="text-inherit font-[400] leading-loose text-gray-400 py-2">
                 At Threadit, our work is guided by the United Nations
-                Sustainable Development Goals (SDGs)—a global blueprint for a
+                Sustainable Development Goals (SDGs) — a global blueprint for a
                 better future. As we grow, these goals help shape the stories we
-                tell, the communities we support, and the impact we hope to
-                make.
+                tell, the communities we support, and the impact we hope to make.
               </p>
               <p className="text-inherit font-[400] leading-loose text-gray-400">
                 We focus on three key goals:
@@ -181,7 +180,7 @@ async function About() {
               <Link
                 href="https://sdgs.un.org/2030agenda"
                 target="_blank"
-                className="mt-4 hover:text-tertiary hover:bg-transparent py-2 px-4 border-tertiary border-[1px] rounded-full w-fit bg-tertiary text-white transition-all flex items-center gap-2"
+                className="mt-4 hover:text-tertiary hover:bg-transparent py-2 px-4 border-tertiary border-[1px] rounded-3xl md:rounded-full w-fit bg-tertiary text-white transition-all flex items-center gap-2"
               >
                 <span className="text-md md:text-lg font-[600]">
                   2030 Agenda for Sustainable Development
@@ -193,6 +192,7 @@ async function About() {
             <SDGTab />
         </div>
       </div>
+      
       <Footer />
     </main>
   );

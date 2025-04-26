@@ -25,7 +25,7 @@ export const NewsletterSection = () => {
   };
 
   return (
-    <section className="bg-gray-100 pt-8 py-[5rem] min-h-[20vh]">
+    <section className="bg-white pt-8 py-[5rem] min-h-[20vh]">
       <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
           Stay Updated!

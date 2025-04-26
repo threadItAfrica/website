@@ -1,10 +1,10 @@
 import Link from "next/link";
 // import { FaArrowCircleRight } from "react-icons/fa";
 import { client } from "@/sanity/client";
-import AfricanFashionImage from "@/assets/images/arican_fashion.png";
+import AfricanFashionImage from "@/assets/images/african_fashion_image.jpg";
 import EcoTrendsImage from "@/assets/images/eco_trends.png";
-import GreenFashionImage from "@/assets/images/green_fashion.png";
-import SustainabilityImage from "@/assets/images/sustainability.png";
+import GreenFashionImage from "@/assets/images/green_fashion_image.png";
+import SustainabilityImage from "@/assets/images/sustainability_image.jpg";
 import { urlFor } from "@/sanity/image";
 import { Post } from "@/utils/interface";
 import { PostTimeEstimator } from "@/components/PostTimeEstimator";
@@ -52,9 +52,9 @@ export const CategoryDisplay = async ({
           {/* Category Header */}
           <Link href={`postList/${categoryData.slug.current}`} className="md:w-2/5">
             <div className="py-4 md:py-6 border-b w-full h-fit shadow-sm group hover:shadow-xl transition-shadow duration-300">
-              <div className="w-full h-40 sm:h-48 md:h-56 lg:h-64 mb-4 overflow-hidden">
+              <div className="w-full h-48 sm:h-48 md:h-56 lg:h-64 mb-4 overflow-hidden">
                 <div
-                  className="w-full h-full bg-cover bg-center mx-auto transform transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-full bg-cover bg-no-repeat bg-center mx-auto transform transition-transform duration-300 group-hover:scale-105"
                   style={{
                     backgroundImage: `url('${
                       categoriesTitle[categoryData.title]?.src || AfricanFashionImage.src
@@ -64,8 +64,8 @@ export const CategoryDisplay = async ({
               </div>
 
               <div>
-                <p className="text-gray-600 mt-2">{categoryData.description}</p>
-                <span className="flex gap-2 items-center mt-4 text-primary font-medium group-hover:translate-x-2 transition-transform duration-300 delay-300">
+                <p className="text-gray-500 mt-2 italic">{categoryData.description}</p>
+                <span className="flex gap-2 items-center mt-4 text-primary font-semibold group-hover:translate-x-2 transition-transform duration-300 delay-300">
                   Explore
                   <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <FiChevronsRight />

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { type SanityDocument } from "next-sanity";
+import { Any, type SanityDocument } from "next-sanity";
 import { client } from "@/sanity/client";
 import Image from "next/image";
 import { urlFor } from "@/sanity/image";
@@ -9,17 +9,31 @@ import { DateFormatter } from "@/components/DateFormatter";
 import Socials from "@/components/Socials";
 import { Likes } from "@/components/Likes";
 import { FetchPosts } from "@/components/FetchPosts";
-import { IoPerson } from "react-icons/io5";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Loader } from "@/components/Loader";
 import { PostTimeEstimator } from "@/components/PostTimeEstimator";
-import { GoDotFill } from "react-icons/go";
 import { mainUrl } from "@/utils/links";
 import { BodyFormatter } from "@/components/BodyFormatter";
-import { incrementViews } from "@/utils/updateViews";
-import { GrView } from "react-icons/gr";
+import { TableOfContents } from "@/components/TableOfContents";
 import Link from "next/link";
+
+interface SanityBlock {
+  _type: string;
+  style?: string;
+  children?: Array<{
+    _type: string;
+    text: string;
+  }>;
+}
+
+// Function to extract headers from Sanity body
+const extractHeaders = (body: SanityBlock[]) => {
+  if (!body) return [];
+  return body
+    .filter((block) => block.style?.startsWith("h"))
+    .map((block) => block.children?.[0]?.text || "");
+};
 
 const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]{
   ...,
@@ -62,9 +76,7 @@ export default async function PostPage({
     );
   }
 
-  if (post) {
-    incrementViews(post._id);
-  }
+  const headers = extractHeaders(post.body);
 
   return (
     <>
@@ -102,81 +114,98 @@ export default async function PostPage({
 
       <main>
         <Header />
-        <div className="container mx-auto  max-w-[2024px]  py-4">
-          {/* Number of views */}
-          <div className="mb-8 py-5 w-fit">
-            <p className="text-md md:text-lg flex gap-2 items-center">
-              <GrView /> <span className="font-[500]">{post.views || 0}</span>{" "}
-            </p>
-          </div>
-
-          <div className="my-8 w-full lg:w-[60%] m-auto px-4">
-            <div className=" flex items-center gap-4">
-              <p className="w-fit text-sm font-[500] text-gray-900 bg-[#fff8ec] rounded-3xl px-4 py-1 my-6">
-                {post.categories[0].title}
-              </p>
-              <PostTimeEstimator body={post.body} />
-            </div>
-            <div className="flex gap-6">
-              <span className="flex gap-2 mt-2">
+        <div className="container mx-auto max-w-[2024px] py-4">
+          <div className="mb-8 w-full md:w-[80%] lg:w-[70%] xl:w-[60%] m-auto px-4 flex gap-4 relative">
+            {/* Social Share Buttons */}
+            <div className="hidden md:block relative">
+              <div className="sticky top-[9rem] h-fit" style={{ bottom: 'calc(100% - 80vh)' }}>
                 <Socials
                   title={post.slug.current}
                   postUrl={`${mainUrl}/post/${post.slug.current}`}
                 />
-              </span>
-              <div>
-
-              {/* POST TITLE */}
-              <h1 className="font-bold lg:font-[500]  text-xl lg:text-4xl">
-                {post.title}
-              </h1>
-
-            <div className="flex gap-4 items-center">
-              <Link href={`/author/${post.author.slug.current}`}>
-                <div className="flex gap-2 items-center">
-                  <IoPerson />
-                  <p className="text-md text-gray-500 font-poppins hover:underline">
-                    {post.author.name}
-                  </p>
-                </div>
-              </Link>
-              <GoDotFill />
-              <p className=" text-gray-500 my-4">
-                <DateFormatter length="long" dateString={post.publishedAt} />
-              </p>
-            </div>
               </div>
             </div>
-            <div className="my-4 lg:mb-8">
-              <p className="text-gray-400 text-md">{post.synopsis}</p>
+
+            {/* Main Content */}
+            <div className="flex-1">
+              <div className=" flex items-center gap-4">
+                <p className="w-fit text-sm font-[500] text-gray-900 bg-[#fff8ec] rounded-3xl md:px-4 py-1 my-3 md:my-6">
+                  {post.categories[0].title}
+                </p>
+                <PostTimeEstimator body={post.body} />
+              </div>
+              <div className="flex gap-6">
+                <div>
+                  {/* POST TITLE */}
+                  <h1 className="font-bold lg:font-[500]  text-xl lg:text-4xl">
+                    {post.title}
+                  </h1>
+
+                  <div>
+                    <div className="flex gap-2 md:gap-4 items-center">
+                      <Link href={`/author/${post.author.slug.current}`}>
+                        <div className="flex gap-2 items-center">
+                          <p className="text-md text-gray-500 font-poppins hover:underline">
+                            By {post.author.name}
+                          </p>
+                        </div>
+                      </Link>
+                      <p className=" text-gray-500 my-4">
+                        <DateFormatter
+                          length="long"
+                          dateString={post.publishedAt}
+                        />
+                      </p>
+                    </div>
+                    <div className="my-4 lg:mb-8">
+                      <p className="text-gray-400 text-md">{post.synopsis}</p>
+                    </div>
+                  </div>
+                  <span className="md:hidden flex gap-2 mb-2 md:mt-2">
+                    <Socials
+                      title={post.slug.current}
+                      postUrl={`${mainUrl}/post/${post.slug.current}`}
+                    />
+                  </span>
+                </div>
+              </div>
+              {/* POST MAIN IMAGE */}
+              <div className="my-4">
+                {post.mainImage && (
+                  <Image
+                    src={urlFor(post.mainImage).url()}
+                    alt={post.title}
+                    className="aspect-auto"
+                    width={1550}
+                    height={1310}
+                  />
+                )}
+              </div>
+              <div>
+                {/* Table of Contents */}
+                <TableOfContents headers={headers} />
+              </div>
+              <hr />
+              {/* POST BODY */}
+              <BodyFormatter body={post.body} />
+              
+              {/* Add a div to mark the end of sticky scroll */}
+              <div id="post-end" className="relative">
+                <span className="flex gap-2 items-center w-fit mx-auto">
+                  {/* LIKES SECTION */}
+                 <p>Like Post</p> <Likes postId={post._id} postLikes={post.likes} />
+                </span>
+              </div>
+              
+              <hr className="my-8" />
+              {/* Comments section remains outside the sticky scroll area */}
+              <Comments id={post._id} comments={post.comments} />
             </div>
-            {/* POST MAIN IMAGE */}
-            <div>
-              {post.mainImage && (
-                <Image
-                  src={urlFor(post.mainImage).url()}
-                  alt={post.title}
-                  className="aspect-auto"
-                  width={1550}
-                  height={1310}
-                />
-              )}
-            </div>
-            <hr />
-            {/* POST BODY */}
-            <BodyFormatter body={post.body} />
-            <span className="flex gap-2 items-center w-fit mx-auto">
-              {/* LIKES SECTION */}
-              <Likes postId={post._id} postLikes={post.likes} />
-            </span>
-            <br />
-            <hr />
-            {/* COMMENTS SECTION */}
-            <Comments id={post._id} comments={post.comments} /> <br />
-            <br />
           </div>
+
+          {/* Related Posts Section */}
           <FetchPosts
-            query={`*[_type == "post"]|order(publishedAt desc)[0...4]{
+            query={`*[_type == "post" && count(categories[]->{title}[@ in $categories]) > 0 && _id != $currentId]|order(publishedAt desc)[0...4]{
             _id,
             title,
             slug,
@@ -185,6 +214,10 @@ export default async function PostPage({
             synopsis,
             publishedAt
           }`}
+            params={{
+              categories: post.categories.map((cat: Any) => cat.title),
+              currentId: post._id,
+            }}
           />
         </div>
         <Footer />

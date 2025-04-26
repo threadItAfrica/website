@@ -11,10 +11,10 @@ export default function Home() {
   return (
     <main>
       <Header />
-      <div className="max-w-[2024px] mx-auto">
+      <div className=" bg-tertiary">
         <Hero />
-        <RecentPosts /> 
       </div>
+        <RecentPosts /> 
         <Categories />
       <NewsletterSection />
       <Footer />

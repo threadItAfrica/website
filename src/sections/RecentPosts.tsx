@@ -23,7 +23,7 @@ export const RecentPosts = async () => {
   const posts: SanityDocument[] = await client.fetch(QUERY);
 
   return (
-    <section className="w-full md:w-[90%] lg:w-[80%] container mx-auto py-6 md:py-10 px-4 md:px-0">
+    <section className="max-w-[2024px] w-full md:w-[90%] lg:w-[80%] container mx-auto py-6 md:py-10 px-4 md:px-0">
       <h2 className="text-xl md:text-2xl font-[600] text-gray-800">Most Recent Posts</h2>
       <div className="relative">
         {/* Carousel Container */}
@@ -31,7 +31,7 @@ export const RecentPosts = async () => {
           {posts.map((post) => (
             <div
               key={post._id}
-              className="group flex-shrink-0 h-fit w-[85%] sm:w-[45%] md:w-[calc(100%/3)] lg:w-[calc(100%/4)] xl:w-[calc(100%/5)] snap-center rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
+              className="group flex-shrink-0 h-fit w-[70%] sm:w-[45%] md:w-[calc(100%/3)] lg:w-[calc(100%/4)] xl:w-[calc(100%/5)] snap-center rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
             >
               <Link href={`/post/${post.slug.current}`}>
                 {/* Post Image */}

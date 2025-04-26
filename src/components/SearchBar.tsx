@@ -27,13 +27,13 @@ export const SearchBar = () => {
   }
 
   return (
-    <div className="w-full max-w-[250px] lg:max-w-[400px] mt-6 ">
+    <div className="w-full md:max-w-[280px] lg:max-w-[400px] mt-6">
       <form onSubmit={handleSubmit(onSubmit)} className=" flex items-center justify-center border bg-white border-gray-300 rounded-lg p-2 w-full">
         <input
           {...register('searchQuery')}
           type="text"
           placeholder="Search for articles, tips, and more..."
-          className="w-full h-full outline-none"
+          className="w-full h-full outline-none text-gray-700"
         />
         <button type="submit" className="bg-primary text-white rounded-lg p-2 ml-2 hover:text-gray-700">
           <FaRegArrowAltCircleRight  />
