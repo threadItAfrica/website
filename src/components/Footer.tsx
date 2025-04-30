@@ -25,11 +25,11 @@ const Footer = async () => {
                 className={`w-[200px] transition-all duration-300 h-[50px]  bg-contain bg-center bg-no-repeat`}
                 style={{ backgroundImage: `url('${logo.src}')` }}
               /> */}
-              <p className="text-primary md:my-2 font-bold text-md md:text-2xl">
+              <p className="text-primary md:my-2 font-bold text-md md:text-xl">
                 Threadit
               </p>
             </Link>
-            <p className="text-gray-400 w-full lg:max-w-[300px]">
+            <p className="text-gray-400 w-full text-sm md:text-md lg:max-w-[300px]">
               Your sustainable fashion guide.
             </p>
           </div>
@@ -41,7 +41,7 @@ const Footer = async () => {
             </h3>
             <ul className="text-gray-400">
               {categories.map((category) => (
-                <li key={category._id} className="my-2">
+                <li key={category._id} className="my-2 text-sm md:text-md">
                   <Link
                     href={`/postList/${category?.slug.current}`}
                     className="hover:underline"
@@ -51,7 +51,7 @@ const Footer = async () => {
                 </li>
               ))}
               <li className="my-1 md:my-2">
-                <Link href="/privacy-policy" className="hover:underline">
+                <Link href="/privacy-policy" className="hover:underline text-sm md:text-md">
                   Privacy Policy
                 </Link>
               </li>
@@ -63,10 +63,10 @@ const Footer = async () => {
             <h3 className="text-md md:text-xl font-bold mb-1 md:mb-2">
               Contact Us
             </h3>
-            <p className="text-gray-400 mb-1 md:my-2">
+            <p className="text-gray-400 mb-1 md:my-2 text-sm md:text-md">
               Email: info@threadit.com
             </p>
-            <p className="text-gray-400 mb-1 md:my-2">Phone: +123 456 7890</p>
+            <p className="text-gray-400 mb-1 md:my-2 text-sm md:text-md">Phone: +123 456 7890</p>
           </div>
         </div>
 
@@ -115,7 +115,7 @@ const Footer = async () => {
       </div>
       <hr className="my-2 border-slate-600" />
       <div className="text-center text-gray-400">
-        <p>&copy; {new Date().getFullYear()} Thread It. All rights reserved.</p>
+        <p className="text-sm md:text-md">&copy; {new Date().getFullYear()} Thread It. All rights reserved.</p>
       </div>
     </footer>
   );
