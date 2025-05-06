@@ -57,9 +57,9 @@ export default function SDGTab() {
   ];
 
   return (
-    <div className="w-full px-4 sm:px-6 md:max-w-[90%] lg:max-w-[80%] mx-auto bg-white rounded-xl mt-12 sm:mt-16 md:mt-[100px] py-6 sm:py-8">
+    <div className="w-full px-4 sm:px-6 lg:max-w-[80%] mx-auto bg-white rounded-xl mt-12 sm:mt-16 md:mt-[100px] py-6 sm:py-8">
       {/* Tab Navigation */}
-      <div className="flex flex-col md:flex-row gap-2 sm:gap-4 pb-4">
+      <div className="flex flex-col md:flex-row gap-2 justify-center sm:gap-4 pb-4">
         {tabs.map((tab) => (
           <button
             key={tab.id}
