@@ -7,10 +7,12 @@ import { useModal } from "@/context/ModalContext";
 import logo from "@/assets/images/logo.svg";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { Any } from "next-sanity";
 const Header = () => {
   const [isOpen, setMenuOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
   const { setIsOpen: setModalOpen } = useModal();
+  const [activeTooltip, setActiveTooltip] = React.useState(null);
 
   // Scroll event with debounce for better performance
   React.useEffect(() => {
@@ -36,11 +38,21 @@ const Header = () => {
     if (isOpen) setMenuOpen(false);
   };
 
+   // Function to handle mouse enter
+   const showTooltip = (id: Any) => {
+    setActiveTooltip(id);
+  };
+  
+  // Function to handle mouse leave
+  const hideTooltip = () => {
+    setActiveTooltip(null);
+  };
+ 
   const sectionLinks = [
-    { title: "Green Fashion", href: "/postList/green-fashion-101" },
-    { title: "Sustainability", href: "/postList/sustainability-for-fashion-brands" },
-    { title: "Eco Trends", href: "/postList/eco-trends-and-innovations" },
-    { title: "African Fashion History", href: "/postList/african-fashion-history" },
+    {id:1, title: "Green Fashion", href: "/postList/green-fashion-101", tooltip: 'Green Fashion 101'},
+    {id:2, title: "Sustainability", href: "/postList/sustainability-for-fashion-brands", tooltip: 'Sustainability for fashion brands'},
+    {id:3, title: "Eco Trends", href: "/postList/eco-trends-and-innovations", tooltip: 'Eco trends & innovations'},
+    {id:4, title: "African Fashion History", href: "/postList/african-fashion-history", tooltip: 'African fashion history'},
   ];
 
   const socialLinks = [
@@ -78,13 +90,22 @@ const Header = () => {
                 <Link
                   key={index}
                   href={item.href}
-                  className={`hover:text-[#E5D170] transition-all duration-200 hover:bg-[#005A56] hover:rounded-md hover:shadow-md whitespace-nowrap ${
+                  className={`relative hover:text-[#E5D170] transition-all duration-200 hover:bg-[#005A56] hover:rounded-md hover:shadow-md whitespace-nowrap ${
                     isScrolled
                       ? "text-gray-800 text-xs md:text-sm px-2 py-1"
                       : "text-gray-900 text-sm px-2 py-2"
                   } font-semibold`}
+                  onMouseEnter={() => showTooltip(item.id)}
+                  onMouseLeave={hideTooltip}
                 >
-                  {item.title}
+                 <span> {item.title}</span>
+
+                  {activeTooltip === item.id && (
+                <div className="absolute z-60 w-fit px-3 py-2 text-sm font-medium bg-gray-50 text-gray-900 rounded-md delay-500 shadow-lg left-0 transform -translate-x-1/4 -bottom-12">
+                  {item.tooltip}
+                  <div className="absolute w-3 h-3 bg-gray-50 transform rotate-45 -top-1 left-1/2 -translate-x-1/2"></div>
+                </div>
+              )}
                 </Link>
               ))}
               

@@ -57,8 +57,7 @@ const TitleSection = ({ category }: { category: string }) => (
 
     <div className="relative w-full z-10 flex items-center justify-center h-full">
       <p className="text-lg md:text-3xl capitalize py-2 px-4 mx-auto rounded-lg w-fit font-[500] mb-4">
-        {category.split("-").join(" ")} Posts
-      </p>
+        {category.split("-").join(" ")}      </p>
     </div>
   </div>
 );

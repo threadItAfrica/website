@@ -15,7 +15,7 @@ async function About() {
   return (
     <main className="scroll-smooth">
       <Header />
-      
+    
       {/* Hero Section */}
       <section className="relative w-full">
         <div className="bg-tertiary w-full relative overflow-hidden">
@@ -24,45 +24,48 @@ async function About() {
           <div className="absolute -bottom-[90px] -left-[90px] w-[120px] h-[120px] sm:w-[150px] sm:h-[150px] md:w-[200px] md:h-[200px] rounded-full bg-secondary"></div>
 
           {/* Content container */}
-          <div className="text-white flex flex-col items-center justify-center w-full mx-auto relative z-10 py-8 px-4 md:px-8">
+          <div className="text-white flex flex-col items-center justify-center w-full mx-auto relative z-10 md:py-8 px-4 md:px-8">
             {/* Text content */}
+            <div className="w-full md:w-[70%] lg:w-[60%] xl:w-[50%] mx-auto flex flex-col items-center justify-center">
             <div className="w-full h-fit text-center py-4 md:py-8">
-              <h1 className="text-left md:text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl capitalize font-semibold leading-tight md:leading-snug lg:leading-normal mb-4">
+              <h1 className=" md:text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl capitalize font-semibold leading-tight md:leading-snug lg:leading-normal mb-4">
                 Be the change you want to see - <br className="hidden sm:block" />
-                <span className="text-secondary">Hi Threadies,</span>
+                <span className="text-secondary text-xl sm:text-2xl">Hi Threadies,</span>
               </h1>
-              <div className="block md:hidden w-full md:w-[85%] lg:w-[70%] xl:w-[60%] mx-auto text-base sm:text-lg font-medium leading-relaxed space-y-3 text-justify">
-                <p className="w-full md:w-[90%] leading-normal">  Fashion isn't just about looking good anymore. Well… it can
+              {/* <div className="block md:hidden w-full md:w-[85%] lg:w-[70%] xl:w-[60%] mx-auto text-base sm:text-lg font-medium leading-relaxed space-y-3 text-justify">
+                <p className="w-full md:w-[90%] leading-normal "> 
+                  {`Fashion isn't just about looking good anymore. Well… it can
                   be. And that's totally fine.              
                   But it can also mean something more. It can be a force for
                   good. It can feel good and do good.
-                 That's what Threadit is all about.
+                 That's what Threadit is all about.`}
                 <strong>Wanna be a part of it?</strong>
                 </p>
-              </div>
+              </div> */}
 
-              <div className="hidden md:block w-full md:w-[60%] xl:w-[50%] mx-auto text-base sm:text-lg font-medium leading-relaxed space-y-3 text-center">
+              <div className="w-full sm:w-[60%] sm:bg-blue-600 py-4  mx-auto text-base sm:text-lg font-medium leading-relaxed space-y-3 text-center">
                 <p className="text-inherit">
-                  Fashion isn't just about looking good anymore. Well… it can
-                  be. And that's totally fine.
+                 {` Fashion isn't just about looking good anymore. Well… it can
+                  be. And that's totally fine.`}
                 </p>
                 <p className="text-inherit">
                   But it can also mean something more. It can be a force for
                   good. It can feel good and do good.
                 </p>
-                <p className="text-inherit">That's what Threadit is all about.</p>
+                <p className="text-inherit">{`That's what Threadit is all about.`}</p>
                 <p className="text-inherit"><strong>Wanna be a part of it?</strong></p>
               </div>
             </div>
 
             {/* Button */}
-            <div className="w-full sm:w-[80%] lg:w-[50%] xl:w-[40%] md:text-center py-4 md:py-6">
+            <div className="w-full sm:w-[80%] lg:w-[50%] xl:w-[40%] md:text-center sm:py-4 md:py-6">
               <Link
                 href="#our-story"
-                className="text-white py-2 px-6 border-white border rounded-full w-fit mx-auto hover:bg-white hover:text-tertiary transition-all duration-300 flex items-center justify-center"
+                className="text-white py-2 md:py-4 px-6 border-white border rounded-full w-fit mx-auto hover:bg-white hover:text-tertiary transition-all duration-300 flex items-center justify-center"
               >
                 <span className="text-sm sm:text-base md:text-lg font-semibold">Read more</span>
               </Link>
+            </div>
             </div>
 
             {/* Hero Image */}
@@ -92,24 +95,25 @@ async function About() {
                     </i>
                   </P>
                   <P>
-                    Fashion's footprint is huge. It contributes to climate
+                   {` Fashion's footprint is huge. It contributes to climate
                     change, pollution, and unsafe working conditions around the
-                    world.
+                    world.`}
                   </P>
                   <P>
                     In Africa, this impact shows up in unique ways. We see it in
                     the overflow of secondhand clothes in our markets and the
                     limited infrastructure for textile waste and recycling.
                   </P>
+                  <P>{`That's where Threadit comes in.`}</P>
                   <P>
-                    That's where Threadit comes in. A platform committed to
+                    {`A platform committed to
                     making sustainability make sense in the context we live,
                     dress, and create in. We explore sustainable fashion through
-                    a lens shaped by culture, creativity, and lived experience.
+                    a lens shaped by culture, creativity, and lived experience.`}
                   </P>
                   <P>
-                    Through content, community, and storytelling, we're bringing
-                    sustainability closer to home.
+                    {`Through content, community, and storytelling, we're bringing
+                    sustainability closer to home.`}
                   </P>
                 </div>
               ),

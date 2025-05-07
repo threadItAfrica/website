@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/studio',
     },
-    sitemap: 'https://threadit.com/sitemap.xml',
+    sitemap: 'https://threaditafrica.com/sitemap.xml',
   }
 }
