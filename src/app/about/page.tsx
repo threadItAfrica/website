@@ -43,7 +43,7 @@ async function About() {
                 </p>
               </div> */}
 
-              <div className="w-full sm:w-[60%] sm:bg-blue-600 py-4  mx-auto text-base sm:text-lg font-medium leading-relaxed space-y-3 text-center">
+              <div className="w-full sm:w-[60%] py-4  mx-auto text-base sm:text-lg font-medium leading-relaxed space-y-3 text-center">
                 <p className="text-inherit">
                  {` Fashion isn't just about looking good anymore. Well… it can
                   be. And that's totally fine.`}

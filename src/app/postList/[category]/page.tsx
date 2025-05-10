@@ -133,10 +133,10 @@ export default async function PostList({ params, searchParams }: PageProps) {
               {page > 1 && (
                 <Link
                   href={`/postList/${cat}?page=1}`}
-                  className="text-white py-2 px-4 rounded-lg bg-primary hover:bg-primary-dark flex items-center gap-2"
+                  className="text-white text-sm md:text-md py-2 px-4 rounded-lg bg-primary hover:bg-primary-dark flex items-center gap-2"
                 >
-                  <LuArrowLeftToLine className="w-6 h-6" />
-                  <span className="hidden md:block">Back to Page</span> 1
+                  <LuArrowLeftToLine className="md:w-6 md:h-6 w-3 h-3" />
+                  <span className="hidden md:block text-sm md:text-md">Back to Page</span> 1
                 </Link>
               )}
             </div>
@@ -146,10 +146,10 @@ export default async function PostList({ params, searchParams }: PageProps) {
               {page > 1 && (
                 <Link
                   href={`/postList/${cat}?page=${page - 1}`}
-                  className="text-white py-2 px-6 rounded-lg bg-primary hover:bg-primary-dark flex items-center gap-2"
+                  className="text-white text-sm md:text-md py-2 px-6 rounded-lg bg-primary hover:bg-primary-dark flex items-center gap-2"
                 >
-                  <FaArrowLeft />
-                  <span className="hidden md:block">Previous</span>
+                  <FaArrowLeft className="md:w-6 md:h-6 w-3 h-3"/>
+                  <span className="hidden md:block text-sm md:text-md">Previous</span>
                 </Link>
               )}
 
@@ -170,7 +170,7 @@ export default async function PostList({ params, searchParams }: PageProps) {
                     </Link>
                   )
                 )} */}
-                <p className="px-2 md:py-2 md:px-6 rounded-lg  border-[1px] border-primary text-primary">
+                <p className="px-2 md:py-2 md:px-6 rounded-lg  border-[1px] border-primary text-primary text-sm md:text-md ">
                 {page}
                 </p>
               </div>
@@ -185,16 +185,16 @@ export default async function PostList({ params, searchParams }: PageProps) {
                     href={`/postList/${cat}?page=${page + 1}`}
                     className="text-white py-2 px-6 rounded-lg bg-primary hover:bg-primary-dark flex items-center gap-2"
                   >
-                    <span className="hidden md:block">Next</span>
-                    <FaArrowRight />
+                    <span className="hidden md:block text-sm md:text-md ">Next</span>
+                    <FaArrowRight className="md:w-6 md:h-6 w-3 h-3"/>
                   </Link>
                 ) : (
                   <button
                     disabled
                     className="text-gray-400 py-2 px-6 rounded-lg bg-gray-200 flex items-center gap-2 cursor-not-allowed"
                   >
-                    <span className="hidden md:block">Next</span>
-                    <FaArrowRight />
+                    <span className="hidden md:block text-sm md:text-md ">Next</span>
+                    <FaArrowRight className="md:w-6 md:h-6 w-3 h-3"/>
                   </button>
                 )}
               </div>
