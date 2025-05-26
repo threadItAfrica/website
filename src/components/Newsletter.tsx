@@ -4,9 +4,7 @@ import { useModal } from "@/context/ModalContext";
 
 export const Newsletter = () => {
   const { isOpen, setIsOpen } = useModal();
-  const [email, setEmail] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState(""); 
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("");
 
@@ -19,9 +17,7 @@ export const Newsletter = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email,
-          firstName,
-          lastName,
+          email, 
         }),
       });
 
@@ -29,9 +25,10 @@ export const Newsletter = () => {
 
       if (response.ok) {
         setStatus("success");
-        setEmail("");
-        setFirstName("");
-        setLastName("");
+        setEmail(""); 
+         setTimeout(() => {
+          setStatus("");
+        }, 5000); //
       } else {
         setStatus(data.error || "An error occurred");
       }
@@ -58,42 +55,20 @@ export const Newsletter = () => {
             <p className="text-gray-600 mb-4">
               Stay updated with the latest news and trends!
             </p>
-            <form onSubmit={handleSubmit}>
-              <div className="mb-4">
-                <label
-                  htmlFor="firstName"
-                  className="block text-sm font-medium text-gray-700"
+             {status && (
+                <div
+                  className={`mt-4 p-3 rounded-md ${
+                    status === "success"
+                      ? "bg-green-100 text-green-700 border border-green-200"
+                      : "bg-red-100 text-red-700 border border-red-200"
+                  }`}
                 >
-                  First Name
-                </label>
-                <input
-                  type="firstName"
-                  id="firstName"
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-                  required
-                  className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-primary focus:border-primary"
-                  placeholder="First Name"
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Last Name
-                </label>
-                <input
-                  type="lastName"
-                  id="lastName"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                  required
-                  className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-primary focus:border-primary"
-                  placeholder="Last Name"
-                />
-              </div>
-
+                 <p> {status === "success"
+                    ? "🎉 Thank you for subscribing! Check your email for confirmation."
+                    : `❌ ${status}`}</p>
+                </div>
+              )}
+            <form onSubmit={handleSubmit}> 
               <div className="mb-4">
                 <label
                   htmlFor="email"
@@ -126,19 +101,7 @@ export const Newsletter = () => {
                   {loading ? "Subscribing..." : "Subscribe"}
                 </button>
               </div>
-              {status && (
-                <div
-                  className={`mt-4 p-3 rounded-md ${
-                    status === "success"
-                      ? "bg-green-100 text-green-700 border border-green-200"
-                      : "bg-red-100 text-red-700 border border-red-200"
-                  }`}
-                >
-                 <p> {status === "success"
-                    ? "🎉 Thank you for subscribing! Check your email for confirmation."
-                    : `❌ ${status}`}</p>
-                </div>
-              )}
+             
             </form>
           </div>
         </div>
