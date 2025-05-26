@@ -134,9 +134,9 @@ export const Newsletter = () => {
                       : "bg-red-100 text-red-700 border border-red-200"
                   }`}
                 >
-                  {status === "success"
+                 <p> {status === "success"
                     ? "🎉 Thank you for subscribing! Check your email for confirmation."
-                    : `❌ ${status}`}
+                    : `❌ ${status}`}</p>
                 </div>
               )}
             </form>
