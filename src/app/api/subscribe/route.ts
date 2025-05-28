@@ -119,6 +119,7 @@ export async function POST(request: Request) {
     });
   } catch (error) {
     console.error('Mailchimp error:', error);
+    console.log('Mailchimp error:', error);
     
     const mailchimpError = error as MailchimpError;
     

@@ -10,6 +10,7 @@ export const Newsletter = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await fetch("/api/subscribe", {
         method: "POST",
@@ -17,7 +18,7 @@ export const Newsletter = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email, 
+          email
         }),
       });
 
@@ -25,23 +26,23 @@ export const Newsletter = () => {
 
       if (response.ok) {
         setStatus("success");
-        setEmail(""); 
-         setTimeout(() => {
-          setStatus("");
-        }, 5000); //
+        setEmail("");
+        // console.log("Successfully subscribed");
+        
       } else {
-        setStatus(data.error || "An error occurred");
+        setStatus(data.error || "An error occurred while subscribing");
+        console.error("Subscription error:", data.error);
       }
     } catch (error) {
-      setStatus("Network error. Please try again.");
-      setTimeout(() => {
-          setStatus("");
-        }, 5000); // Clear status after 5 seconds
-      console.log(error);
+      console.error("Newsletter submission error:", error);
+      setStatus("Failed to subscribe. Please try again later.");
     } finally {
       setLoading(false);
+      setTimeout(() => {
+        setStatus("");
+      }, 5000);
+      setIsOpen(false); // Close the modal after submission
     }
-    setIsOpen(false); // Close the modal after submission
   };
 
   return (
@@ -65,7 +66,8 @@ export const Newsletter = () => {
                 >
                  <p> {status === "success"
                     ? "🎉 Thank you for subscribing! Check your email for confirmation."
-                    : `❌ ${status}`}</p>
+                    : `❌ ${status}`}
+                    </p>
                 </div>
               )}
             <form onSubmit={handleSubmit}> 
