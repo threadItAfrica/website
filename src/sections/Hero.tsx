@@ -64,7 +64,7 @@ const Hero = () => {
         </p>
 
         {/* Search Bar */}
-        <div className="max-w-2xl mx-auto">
+        <div className="w-[500px] mx-auto">
           <SearchBar />
         </div>
 
@@ -88,7 +88,7 @@ const Hero = () => {
           <Image
             src={needle}
             alt="Needle"
-            className="absolute top-60 left-[30%] w-10 md:w-14 animate-float-delay-3"
+            className="absolute top-60 left-[80%] w-10 md:w-14 animate-float-delay-3"
           />
           <Image
             src={recycle}
