@@ -106,7 +106,7 @@ export const NewsletterSection = () => {
             </div>
 
             <div className="mb-8">
-              <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+              <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent">
                 Join Our Newsletter
               </h2>
               <p className="text-gray-600">
@@ -138,7 +138,7 @@ export const NewsletterSection = () => {
               
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-primary to-primary hover:from-blue-700 hover:to-blue-800 text-white py-3 rounded-xl font-medium transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg shadow-primary/25"
+                className="w-full bg-gradient-to-r from-primary to-primary hover:from-secondary hover:to-secondary text-white py-3 rounded-xl font-medium transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg shadow-primary/25"
                 disabled={loading}
               >
                 {loading ? (
