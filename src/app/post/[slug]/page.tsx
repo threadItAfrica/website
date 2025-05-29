@@ -151,7 +151,9 @@ export default async function PostPage({
                 {post.categories[0].title}
               </p>
               <PostTimeEstimator body={post.body} />
-            </div>o
+            </div>
+            <div className="flex gap-6">
+              <div>
                 {/* POST TITLE */}
                 <h1 className="font-bold lg:font-[500]  text-xl lg:text-4xl">
                   {post.title}
@@ -217,6 +219,8 @@ export default async function PostPage({
             <hr className="my-8" />
             {/* Comments section remains outside the sticky scroll area */}
             <Comments id={post._id} comments={post.comments} />
+          </div>
+        </div>
 
         {/* Related Posts Section */}
         <FetchPosts

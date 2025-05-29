@@ -21,34 +21,34 @@ export const BodyFormatter = ({ body }: BodyFormatterProps) => {
           components={{
             block: {
               normal: ({ children }) => (
-                <p className="text-gray-800 text-base sm:text-lg leading-relaxed my-4 sm:my-6 font-body">{children}</p>
+                <p className="text-gray-800 text-base sm:text-lg leading-relaxed font-body">{children}</p>
               ),
               h1: ({ children }) => (
-                <h1 id={getHeaderId(children)} className="text-black text-xl sm:text-2xl md:text-3xl font-semibold mt-8 mb-4 flex gap-2 items-center font-heading">
+                <h1 id={getHeaderId(children)} className="text-black text-xl sm:text-2xl md:text-3xl font-[500] mt-8 mb-4 flex gap-2 items-center font-heading">
                   <span className="hidden md:block rounded-full w-[13px] h-[13px] bg-primary"></span>
                   {children}
                 </h1>
               ),
               h2: ({ children }) => (
-                <h2 id={getHeaderId(children)} className="text-black text-lg sm:text-xl md:text-2xl font-semibold mt-6 mb-3 flex gap-2 items-center font-heading">
+                <h2 id={getHeaderId(children)} className="text-black text-lg sm:text-xl md:text-2xl font-[500] mt-6 mb-3 flex gap-2 items-center font-heading">
                   <span className="hidden md:block rounded-full w-[13px] h-[13px] bg-primary"></span>
                   {children}
                 </h2>
               ),
               h3: ({ children }) => (
-                <h3 id={getHeaderId(children)} className="text-black text-base sm:text-lg md:text-xl font-semibold mt-5 mb-3 flex gap-2 items-center font-heading">
+                <h3 id={getHeaderId(children)} className="text-black text-base sm:text-lg md:text-xl font-[500] mt-5 mb-3 flex gap-2 items-center font-heading">
                   <span className="hidden md:block rounded-full w-[13px] h-[13px] bg-primary"></span>
                   {children}
                 </h3>
               ),
               h4: ({ children }) => (
-                <h4 id={getHeaderId(children)} className="text-black text-base sm:text-lg font-medium mt-4 mb-2 flex gap-2 items-center font-heading">
+                <h4 id={getHeaderId(children)} className="text-black text-base sm:text-lg mt-4 mb-2 font-[500] flex gap-2 items-center font-heading">
                   <span className="hidden md:block rounded-full w-[13px] h-[13px] bg-primary"></span>
                   {children}
                 </h4>
               ),
               h5: ({ children }) => (
-                <h5 id={getHeaderId(children)} className="text-black text-base sm:text-lg font-medium mt-4 mb-2 flex gap-2 items-center font-heading">
+                <h5 id={getHeaderId(children)} className="text-black text-base sm:text-lg mt-4 mb-2 font-[500] flex gap-2 items-center font-heading">
                   <span className="hidden md:block rounded-full w-[13px] h-[13px] bg-primary"></span>
                   {children}
                 </h5>

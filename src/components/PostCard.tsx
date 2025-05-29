@@ -22,7 +22,7 @@ export const PostCard = ({ post }: { post: SanityDocument }) => {
           <p className="text-xs md:text-sm font-medium text-slate-700 mb-2 line-clamp-1">
             {post.categories[0]?.title || "Uncategorized"}
           </p>
-          <h3 className="text-base md:text-lg font-heading font-semibold text-gray-800 line-clamp-2 group-hover:text-primary transition-colors">
+          <h3 className="text-base md:text-lg font-heading font-semibold text-gray-800 line-clamp-1 group-hover:text-primary transition-colors">
             {post.title}
           </h3>
           {post.synopsis && (

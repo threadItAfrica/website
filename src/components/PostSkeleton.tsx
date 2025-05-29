@@ -1,6 +1,6 @@
 const PostSkeleton = () => {
   return (
-    <div className="flex-shrink-0 h-fit w-[70%] sm:w-[45%] md:w-[calc(100%/3)] lg:w-[calc(100%/4)] xl:w-[calc(100%/5)] snap-center rounded-lg overflow-hidden shadow-md">
+    <div className="flex-shrink-0 h-full w-[70%] sm:w-[45%] md:w-[calc(100%/3)] lg:w-[calc(100%/4)] xl:w-[calc(100%/5)] snap-center rounded-lg overflow-hidden shadow-md">
       {/* Skeleton Image */}
       <div className="w-full h-[150px] sm:h-[180px] md:h-[200px] bg-gray-200 animate-pulse"></div>
       

@@ -11,9 +11,10 @@ export const TableOfContents = ({ headers }: TableOfContentsProps) => {
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
-      const offset = 100; // Offset for fixed header
+      const header = document.querySelector('header');
+      const headerOffset = header ? header.offsetHeight : 0;
       const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset - 20; // 20px extra padding
 
       window.scrollTo({
         top: offsetPosition,
@@ -23,7 +24,7 @@ export const TableOfContents = ({ headers }: TableOfContentsProps) => {
   };
 
   return (
-    <div className="my-8 p-6 bg-gray-50 rounded-lg font-body">
+    <div className="my-8 p-6 rounded-lg font-body">
       <h2 className="text-lg md:text-xl font-heading font-semibold mb-4">Table of Contents</h2>
       <ul className="space-y-2">
         {headers.map((header, index) => {
