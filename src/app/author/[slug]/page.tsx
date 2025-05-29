@@ -8,11 +8,12 @@ import Footer from "@/components/Footer";
 import { BodyFormatter } from "@/components/BodyFormatter"; 
 import { FaFacebook } from "react-icons/fa";
 import { FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
-import { Card } from "@/components/postCard";
+import { Card } from "@/components/PostCard";
+
 
 
 const AUTHOR_QUERY = `*[_type == "author" && slug.current == $slug][0]{
-  name,
+  name, 
   bio,
   image,
   x,
