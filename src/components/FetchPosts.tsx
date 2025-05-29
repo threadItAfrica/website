@@ -1,6 +1,6 @@
 import { client } from "@/sanity/client";
 import { SanityDocument } from "next-sanity";
-import { Card } from "./postCard";
+import { PostCard } from "./PostCard";
 import Link from "next/link";
 import { FiChevronsRight } from "react-icons/fi";
 import { urlFor } from "@/sanity/image";
@@ -42,7 +42,7 @@ export const FetchPosts = async ({ query, params }: FetchPostsProps) => {
       <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 px-4 py-4">
         {posts.map((post) => (
           <Link key={post._id} href={`/post/${post.slug.current}`}>
-            <Card post={post} />
+            <PostCard post={post} />
           </Link>
         ))}
         {skeletonsNeeded > 0 &&
