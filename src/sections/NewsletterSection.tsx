@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Image from "next/image";
+import Link from "next/link";
 
 const schema = yup.object().shape({
   email: yup.string().email("Invalid email address").required("Email is required") 
@@ -66,7 +67,7 @@ export const NewsletterSection = () => {
   };
 
   return (
-    <section className="bg-[#f8faff] py-16 relative overflow-hidden">
+    <section className="bg-[#fff] py-16 relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-50 rounded-full"></div>
@@ -124,7 +125,7 @@ export const NewsletterSection = () => {
                 <input
                   type="email"
                   {...register("email")}
-                  className="w-full pl-12 pr-4 py-3 rounded-xl border-2 border-gray-100 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 outline-none bg-gray-50"
+                  className="w-full pl-12 pr-4 py-3 rounded-xl border-2 border-gray-100 focus:border-primary focus:ring-2 focus:ring-blue-200 transition-all duration-200 outline-none bg-gray-50"
                   placeholder="Enter your email"
                   required
                 />
@@ -137,7 +138,7 @@ export const NewsletterSection = () => {
               
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white py-3 rounded-xl font-medium transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg shadow-blue-500/25"
+                className="w-full bg-gradient-to-r from-primary to-primary hover:from-blue-700 hover:to-blue-800 text-white py-3 rounded-xl font-medium transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg shadow-primary/25"
                 disabled={loading}
               >
                 {loading ? (
@@ -205,7 +206,7 @@ export const NewsletterSection = () => {
             <div className="mt-6 pt-6 border-t border-gray-100">
               <p className="text-xs text-gray-500 text-center">
                 By subscribing, you agree to our{" "}
-                <a href="#" className="text-blue-600 hover:underline">Privacy Policy</a>
+                <Link href="/privacy-policy" className="text-blue-600 hover:underline">Privacy Policy</Link>
               </p>
             </div>
           </div>

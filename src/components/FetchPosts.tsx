@@ -4,6 +4,7 @@ import { Card } from "./postCard";
 import Link from "next/link";
 import { FiChevronsRight } from "react-icons/fi";
 import { urlFor } from "@/sanity/image";
+import { RelatedPostSkeleton } from "./RelatedPostSkeleton";
 
 interface FetchPostsProps {
   query: string;
@@ -14,8 +15,9 @@ interface FetchPostsProps {
 }
 
 export const FetchPosts = async ({ query, params }: FetchPostsProps) => {
-  // Fetch posts directly on the server with params
   const posts: SanityDocument[] = await client.fetch(query, params);
+  const skeletonsNeeded = Math.max(0, 4 - posts.length);
+  const skeletons = Array(skeletonsNeeded).fill(null);
 
   if (!posts.length) {
     return null;
@@ -43,6 +45,10 @@ export const FetchPosts = async ({ query, params }: FetchPostsProps) => {
             <Card post={post} />
           </Link>
         ))}
+        {skeletonsNeeded > 0 &&
+          skeletons.map((_, index) => (
+            <RelatedPostSkeleton key={`skeleton-${index}`} />
+          ))}
       </div>
 
       {/* Mobile Layout */}
@@ -83,6 +89,10 @@ export const FetchPosts = async ({ query, params }: FetchPostsProps) => {
             </div>
           </Link>
         ))}
+        {skeletonsNeeded > 0 &&
+          skeletons.map((_, index) => (
+            <RelatedPostSkeleton key={`mobile-skeleton-${index}`} />
+          ))}
       </div>
     </section>
   );

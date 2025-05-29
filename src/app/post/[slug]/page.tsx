@@ -145,12 +145,12 @@ export default async function PostPage({
                     <div className="flex gap-2 md:gap-4 items-center">
                       <Link href={`/author/${post.author.slug.current}`}>
                         <div className="flex gap-2 items-center">
-                          <p className="text-md text-gray-500 font-poppins hover:underline">
+                          <p className="text-md text-gray-800 font-poppins hover:underline">
                             By {post.author.name}
                           </p>
                         </div>
                       </Link>
-                      <p className=" text-gray-500 my-4">
+                      <p className=" text-gray-800 my-4">
                         <DateFormatter
                           length="long"
                           dateString={post.publishedAt}

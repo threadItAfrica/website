@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { FaHeart } from 'react-icons/fa'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -12,6 +12,12 @@ export const Likes = ({ postId, postLikes = 0 }: LikesProps) => {
   const [likes, setLikes] = useState(postLikes)
   const [isLiked, setIsLiked] = useState(false)
   const [isProcessing, setIsProcessing] = useState(false)
+
+  // Load liked state from localStorage on mount
+  useEffect(() => {
+    const likedPosts = JSON.parse(localStorage.getItem('likedPosts') || '{}')
+    setIsLiked(!!likedPosts[postId])
+  }, [postId])
 
   const handleLike = async () => {
     if (isProcessing) return;
@@ -28,18 +34,29 @@ export const Likes = ({ postId, postLikes = 0 }: LikesProps) => {
         body: JSON.stringify({ postId, action: isLiked ? "unlike" : "like" }),
       });
 
-      const data = await response.json();
-
       if (!response.ok) {
-        throw new Error(data.error || "Failed to update likes");
+        const error = await response.json();
+        throw new Error(error.error || "Failed to update likes");
       }
+
+      const data = await response.json();
 
       // Update state only after successful API call
       setIsLiked(!isLiked);
       setLikes(data.likes); // Use the likes count from the server
+
+      // Save liked state to localStorage
+      const likedPosts = JSON.parse(localStorage.getItem('likedPosts') || '{}')
+      if (!isLiked) {
+        likedPosts[postId] = true
+      } else {
+        delete likedPosts[postId]
+      }
+      localStorage.setItem('likedPosts', JSON.stringify(likedPosts))
     } catch (error) {
-      console.error("Error updating likes:", error);
-      // Show error to user if needed
+      if (error instanceof Error) {
+        console.error("Error updating likes:", error.message);
+      }
     } finally {
       setIsProcessing(false);
     }
@@ -80,7 +97,7 @@ export const Likes = ({ postId, postLikes = 0 }: LikesProps) => {
         </motion.div>
       </motion.button>
 
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         <motion.span
           key={likes}
           initial={{ opacity: 0, y: -10 }}

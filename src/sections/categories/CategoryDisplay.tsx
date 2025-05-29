@@ -1,5 +1,4 @@
 import Link from "next/link";
-// import { FaArrowCircleRight } from "react-icons/fa";
 import { client } from "@/sanity/client";
 import AfricanFashionImage from "@/assets/images/african_fashion_image.jpg";
 import EcoTrendsImage from "@/assets/images/eco_trends.png";
@@ -10,6 +9,7 @@ import { Post } from "@/utils/interface";
 import { PostTimeEstimator } from "@/components/PostTimeEstimator";
 import { FiChevronsRight } from "react-icons/fi";
 import { StaticImageData } from "next/image";
+import CategoryPostSkeleton from "@/components/CategoryPostSkeleton";
 
 const QUERY = `*[_type == "category" && _id == $categoryId][0]{
   _id,
@@ -43,6 +43,10 @@ export const CategoryDisplay = async ({
   const categoryData = await client.fetch(QUERY, { categoryId: category });
 
   if (!categoryData) return null;
+
+  const posts = categoryData.posts || [];
+  const skeletonsNeeded = Math.max(0, 3 - posts.length);
+  const skeletons = Array(skeletonsNeeded).fill(null);
 
   return (
     <section className="w-full container mx-auto px-4 md:px-0">
@@ -78,7 +82,7 @@ export const CategoryDisplay = async ({
           {/* Posts Grid */}
           <div className="w-full md:w-3/5 md:p-6">
             <div className="grid gap-3 md:gap-4">
-              {categoryData.posts?.map((post: Post) => (
+              {posts.map((post: Post) => (
                 <Link
                   href={`/post/${post.slug.current}`}
                   key={post._id}
@@ -115,6 +119,9 @@ export const CategoryDisplay = async ({
                     </div>
                   </div>
                 </Link>
+              ))}
+              {skeletonsNeeded > 0 && skeletons.map((_, index) => (
+                <CategoryPostSkeleton key={`skeleton-${index}`} />
               ))}
             </div>
           </div>

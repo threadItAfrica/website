@@ -27,70 +27,75 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="max-w-[2024px] mx-auto w-[90%] h-[auto] lg:min-h-screen flex flex-col lg:gap-2 xl:gap-5 xl:flex-row justify-center items-center text-white text-center py-6 lg:px-20 relative overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 flex items-center justify-center overflow-hidden font-body">
 
-      {/* Decorative illustrations */}
-      <Image
-        src={hanger}
-        alt="decoration"
-        className="block absolute top-4 left-6 w-16 h-16 lg:top-14 lg:left-10 lg:w-24 lg:h-24 -translate-x-1/2 -translate-y-1/2 opacity-80 z-[-1] lg:z-[0]"
-      />
-      <Image
-        src={hat}
-        alt="decoration"
-        className="block absolute top-50 right-10 w-16 h-16 translate-x-1/2 translate-y-1/2 opacity-80 z-[-1] lg:z-[0]"
-      />
-      <Image
-        src={recycle}
-        alt="decoration"
-        className="block absolute bottom-8 left-2 w-16 h-16 translate-x-1/2 translate-y-1/2 opacity-80 z-[-1] lg:z-[0]"
-      />
-      <Image
-        src={leaf}
-        alt="decoration"
-        className="block absolute bottom-14 right-10 w-16 h-16 translate-x-1/2 translate-y-1/2 opacity-80 z-[-1] lg:z-[0]"
-      />
-      <Image
-        src={needle}
-        alt="decoration"
-        className="hidden md:block absolute top-1/2 left-20 w-20 h-20 -translate-x-1/2 translate-y-1/2 opacity-80"
-      />
-     
-      <div className="w-full max-w-5xl aspect-video rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.3)] relative">
-        {showPoster && (
-          <div className="absolute inset-0 z-10 rounded-xl">
-            <Image 
-              src={poster} 
-              alt="Video poster" 
-              className="w-full h-full object-cover rounded-xl"
-              priority
-              layout="fill"
-            />
-          </div>
-        )}
+      {/* Video Background */}
+      <div className="absolute inset-0 w-full h-full">
+        <div className="absolute inset-0 bg-black/60 z-10"></div>
         <video
           ref={videoRef}
-          className="w-full h-full object-cover rounded-xl"
-          muted
+          className="w-full h-full object-cover"
           loop
+          muted
           playsInline
-          autoPlay={false}
+          onPlay={() => setShowPoster(false)}
         >
           <source src="/video/Hero.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
         </video>
+        {showPoster && (
+          <Image
+            src={poster}
+            alt="Video Poster"
+            className="absolute inset-0 w-full h-full object-cover"
+            priority
+          />
+        )}
       </div>
-      <div className="flex flex-col items-center justify-center w-full">
-        <div className="tet-center w-fit mx-center text-white py-4 px-8 rounded-xl">
-          <p className="text-3xl lg:text-4xl text-inherit font-Thicccboi">
-            What you wear<br />  can change everything- 
-            <br /><span className="block mt-4 md:mt-6 text-2xl md:text-4xl text-[#E5D170]">Hi Threadies,</span>
-          </p>
-          <p className="text-md md:text-[1.05rem] text-inherit font-lato w-full md:w-2/4 text-center mx-auto">
-            Look good. Do good.
-          </p>
+
+      {/* Content */}
+      <div className="relative z-20 container mx-auto px-4 text-center">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-6 leading-tight">
+          Discover Sustainable Fashion <br />
+          <span className="text-primary">For a Better Tomorrow</span>
+        </h1>
+        <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+          Explore eco-friendly fashion trends, sustainable practices, and innovative solutions
+          for a more environmentally conscious wardrobe.
+        </p>
+
+        {/* Search Bar */}
+        <div className="max-w-2xl mx-auto">
+          <SearchBar />
         </div>
-        <SearchBar />
+
+        {/* Floating Images */}
+        <div className="absolute inset-0 pointer-events-none">
+          <Image
+            src={leaf}
+            alt="Leaf"
+            className="absolute top-20 left-[10%] w-16 md:w-20 animate-float"
+          />
+          <Image
+            src={hanger}
+            alt="Hanger"
+            className="absolute top-40 right-[15%] w-12 md:w-16 animate-float-delay-1"
+          />
+          <Image
+            src={hat}
+            alt="Hat"
+            className="absolute bottom-32 left-[20%] w-14 md:w-18 animate-float-delay-2"
+          />
+          <Image
+            src={needle}
+            alt="Needle"
+            className="absolute top-60 left-[30%] w-10 md:w-14 animate-float-delay-3"
+          />
+          <Image
+            src={recycle}
+            alt="Recycle"
+            className="absolute bottom-40 right-[25%] w-12 md:w-16 animate-float-delay-4"
+          />
+        </div>
       </div>
     </section>
   );

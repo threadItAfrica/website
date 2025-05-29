@@ -14,68 +14,96 @@ export const BodyFormatter = ({ body }: BodyFormatterProps) => {
   };
 
   return (
-    <div className="prose text-[1rem] lg:text-xl lg:prose-xl">
+    <div className="prose prose-sm md:prose-base lg:prose-lg max-w-none font-body">
       {Array.isArray(body) && (
         <PortableText
           value={body}
           components={{
             block: {
               normal: ({ children }) => (
-                <p className="text-gray-600 text-md md:text-lg my-8">{children}</p>
+                <p className="text-gray-800 text-base sm:text-lg leading-relaxed my-4 sm:my-6 font-body">{children}</p>
               ),
               h1: ({ children }) => (
-                <h1 id={getHeaderId(children)} className="text-gray-700 text-md md:text-lg mt-4 mb-2  font-[600] flex gap-2 items-center">
+                <h1 id={getHeaderId(children)} className="text-black text-xl sm:text-2xl md:text-3xl font-semibold mt-8 mb-4 flex gap-2 items-center font-heading">
                   <span className="hidden md:block rounded-full w-[13px] h-[13px] bg-primary"></span>
                   {children}
                 </h1>
               ),
               h2: ({ children }) => (
-                <h2 id={getHeaderId(children)} className="text-gray-700 text-md md:text-lg mt-4 mb-2  font-[600] flex gap-2 items-center">
+                <h2 id={getHeaderId(children)} className="text-black text-lg sm:text-xl md:text-2xl font-semibold mt-6 mb-3 flex gap-2 items-center font-heading">
                   <span className="hidden md:block rounded-full w-[13px] h-[13px] bg-primary"></span>
                   {children}
                 </h2>
               ),
               h3: ({ children }) => (
-                <h3 id={getHeaderId(children)} className="text-gray-700 text-md md:text-lg mt-4 mb-2 font-[600] flex gap-2 items-center">
+                <h3 id={getHeaderId(children)} className="text-black text-base sm:text-lg md:text-xl font-semibold mt-5 mb-3 flex gap-2 items-center font-heading">
                   <span className="hidden md:block rounded-full w-[13px] h-[13px] bg-primary"></span>
                   {children}
                 </h3>
               ),
               h4: ({ children }) => (
-                <h3 id={getHeaderId(children)} className="text-gray-700 text-md md:text-lg mt-4 mb-2  font-[600] flex gap-2 items-center">
+                <h4 id={getHeaderId(children)} className="text-black text-base sm:text-lg font-medium mt-4 mb-2 flex gap-2 items-center font-heading">
                   <span className="hidden md:block rounded-full w-[13px] h-[13px] bg-primary"></span>
                   {children}
-                </h3>
+                </h4>
               ),
               h5: ({ children }) => (
-                <h3 id={getHeaderId(children)} className="text-gray-700 text-md md:text-lg mt-4 mb-2 font-[600] flex gap-2 items-center">
+                <h5 id={getHeaderId(children)} className="text-black text-base sm:text-lg font-medium mt-4 mb-2 flex gap-2 items-center font-heading">
                   <span className="hidden md:block rounded-full w-[13px] h-[13px] bg-primary"></span>
                   {children}
-                </h3>
+                </h5>
               ),
               h6: ({ children }) => (
-                <h3 id={getHeaderId(children)} className="text-gray-700 text-md md:text-lg mt-4 mb-2  font-[600] flex gap-2 items-center">
+                <h6 id={getHeaderId(children)} className="text-black text-base sm:text-lg font-medium mt-4 mb-2 flex gap-2 items-center font-heading">
                   <span className="hidden md:block rounded-full w-[13px] h-[13px] bg-primary"></span>
                   {children}
-                </h3>
+                </h6>
               ),
               blockquote: ({ children }) => (
-                <blockquote className="border-l-4 border-primary text-md md:text-lg pl-4 italic text-gray-600 my-8">
+                <blockquote className="border-l-4 border-primary bg-gray-50 px-4 py-3 my-6 text-base sm:text-lg text-gray-700 italic font-body rounded-r">
                   {children}
                 </blockquote>
               ),
             },
+            list: {
+              bullet: ({ children }) => (
+                <ul className="list-disc list-outside pl-4 sm:pl-6 space-y-2 my-4 text-base sm:text-lg text-gray-800 font-body">
+                  {children}
+                </ul>
+              ),
+              number: ({ children }) => (
+                <ol className="list-decimal list-outside pl-4 sm:pl-6 space-y-2 my-4 text-base sm:text-lg text-gray-800 font-body">
+                  {children}
+                </ol>
+              ),
+            },
+            listItem: {
+              bullet: ({ children }) => (
+                <li className="text-gray-800 pl-2">{children}</li>
+              ),
+              number: ({ children }) => (
+                <li className="text-gray-800 pl-2">{children}</li>
+              ),
+            },
             types: {
               image: ({ value }) => (
-                <div className="bg-cover bg-center w-full md:w-[80%] h-[100%]">
-                  <Image
-                    src={urlFor(value).url()}
-                    alt={value.alt || "Post Image"}
-                    className="aspect-auto"
-                    width={1550}
-                    height={1310}
-                  />
-                </div>
+                <figure className="my-8">
+                  <div className="w-full overflow-hidden rounded-lg">
+                    <Image
+                      src={urlFor(value).url()}
+                      alt={value.alt || "Post Image"}
+                      className="w-full h-auto object-cover"
+                      width={1200}
+                      height={800}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
+                    />
+                  </div>
+                  {value.caption && (
+                    <figcaption className="mt-2 text-center text-sm text-gray-600 italic font-body">
+                      {value.caption}
+                    </figcaption>
+                  )}
+                </figure>
               ),
             },
           }}
