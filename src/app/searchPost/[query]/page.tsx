@@ -2,8 +2,8 @@ import Link from "next/link";
 import { client } from "@/sanity/client";
 import { SanityDocument } from "next-sanity";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { Card } from "@/components/postCard";
+import Footer from "@/components/Footer"; 
+import { PostCard } from "@/components/PostCard";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { LuArrowLeftToLine } from "react-icons/lu";
 
@@ -94,7 +94,7 @@ export default async function SearchResults({ params, searchParams }: PageProps)
               href={`/post/${post.slug.current}`}
               className="w-fit h-fit"
             >
-              <Card post={post} />
+              <PostCard post={post} />
             </Link>
           ))}
         </div>

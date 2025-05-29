@@ -8,9 +8,7 @@ import Footer from "@/components/Footer";
 import { BodyFormatter } from "@/components/BodyFormatter"; 
 import { FaFacebook } from "react-icons/fa";
 import { FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
-import { Card } from "@/components/PostCard";
-
-
+import { PostCard } from "@/components/PostCard";
 
 const AUTHOR_QUERY = `*[_type == "author" && slug.current == $slug][0]{
   name, 
@@ -127,7 +125,7 @@ export default async function PostPage({
                 href={`/post/${post.slug.current}`}
                 className="block bg-white shadow-lg rounded-lg overflow-hidden"
               >
-               <Card post={post} />
+               <PostCard post={post} />
               </Link>
             ))}
           </div>

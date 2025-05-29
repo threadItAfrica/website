@@ -3,7 +3,7 @@ import { client } from "@/sanity/client";
 import { SanityDocument } from "next-sanity";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Card } from "@/components/postCard";
+import { PostCard } from "@/components/PostCard";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { LuArrowLeftToLine } from "react-icons/lu";
 import sustainability from "@/assets/images/sustainability_image.jpg"; // Fallback image
@@ -120,7 +120,7 @@ export default async function PostList({ params, searchParams }: PageProps) {
               className="w-full h-full group transition-all duration-300 hover:shadow-xl rounded-lg hover:-translate-y-1"
             >
               <div className="overflow-hidden rounded-lg">
-                <Card post={post} />
+                <PostCard post={post} />
               </div>
             </Link>
           ))}
