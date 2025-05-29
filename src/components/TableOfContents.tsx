@@ -23,8 +23,8 @@ export const TableOfContents = ({ headers }: TableOfContentsProps) => {
   };
 
   return (
-    <div className="my-8 p-6 rounded-lg font-body">
-      <h2 className="text-lg md:text-xl font-heading font-semibold mb-4">Sections In This Post</h2>
+    <div className="my-8 p-6 bg-gray-50 rounded-lg font-body">
+      <h2 className="text-lg md:text-xl font-heading font-semibold mb-4">Table of Contents</h2>
       <ul className="space-y-2">
         {headers.map((header, index) => {
           const id = header.toLowerCase().replace(/\s+/g, "-");
