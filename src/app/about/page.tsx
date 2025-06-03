@@ -29,8 +29,8 @@ async function About() {
             <div className="w-full md:w-[70%] lg:w-[60%] xl:w-[50%] mx-auto flex flex-col items-center justify-center">
             <div className="w-full h-fit text-center py-4 md:py-8">
               <h1 className=" md:text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl capitalize font-semibold leading-tight md:leading-snug lg:leading-normal mb-4">
-                Be the change you want to see - <br className="hidden sm:block" />
-                <span className="text-secondary text-xl sm:text-2xl">Hi Threadies,</span>
+                <span className="text-[600]">Be the change you want to see </span><br/>
+                <span className="text-secondary text-xl sm:text-2xl">- Hi Threadies,</span>
               </h1>
               {/* <div className="block md:hidden w-full md:w-[85%] lg:w-[70%] xl:w-[60%] mx-auto text-base sm:text-lg font-medium leading-relaxed space-y-3 text-justify">
                 <p className="w-full md:w-[90%] leading-normal "> 
