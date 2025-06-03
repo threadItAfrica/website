@@ -43,7 +43,7 @@ const TitleSection = ({ category }: { category: string }) => (
       backgroundImage:
         category === "sustainability-for-fashion-brands"
           ? `url('${sustainability.src}')`
-          : category === "eco-trends-innovations"
+          : category === "eco-trends-and-innovations"
             ? `url('${EcoTrends.src}')`
             : category === "green-fashion-101"
               ? `url('${GreenFashion.src}')`
