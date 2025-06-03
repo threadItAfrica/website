@@ -16,8 +16,8 @@
 
 
 :root {
-  --background:rgb(255, 247, 250);
-  --foreground: #472424;
+  --background:rgb(233, 233, 233);
+  --foreground: #000000;
 }
  
 body {
