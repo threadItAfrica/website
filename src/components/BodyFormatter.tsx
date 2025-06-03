@@ -85,6 +85,18 @@ export const BodyFormatter = ({ body }: BodyFormatterProps) => {
                 <li className="text-gray-800 pl-2">{children}</li>
               ),
             },
+              marks: {
+              link: ({ children, value }) => (
+                <a 
+                  href={value.href}
+                  target={value.href.startsWith('http') ? '_blank' : '_self'}
+                  rel={value.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="text-primary hover:text-primary/80 underline underline-offset-2 hover:underline-offset-4 transition-all duration-200 font-medium"
+                >
+                  {children}
+                </a>
+              ),
+            },
             types: {
               image: ({ value }) => (
                 <figure className="my-8">

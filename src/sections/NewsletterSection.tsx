@@ -106,7 +106,7 @@ export const NewsletterSection = () => {
             </div>
 
             <div className="mb-8">
-              <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent">
+              <h2 className="text-xl font-bold mb-4 bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent">
                 Join Our Newsletter
               </h2>
               <p className="text-gray-600">

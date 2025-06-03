@@ -118,7 +118,10 @@ export default async function PostPage({
           <div className="mb-8 w-full md:w-[80%] lg:w-[70%] xl:w-[60%] m-auto px-4 flex gap-4 relative">
             {/* Social Share Buttons */}
             <div className="hidden md:block relative">
-              <div className="sticky top-[9rem] h-fit" style={{ bottom: 'calc(100% - 80vh)' }}>
+              <div
+                className="sticky top-[9rem] h-fit"
+                style={{ bottom: "calc(100% - 80vh)" }}
+              >
                 <Socials
                   title={post.slug.current}
                   postUrl={`${mainUrl}/post/${post.slug.current}`}
@@ -172,13 +175,18 @@ export default async function PostPage({
               {/* POST MAIN IMAGE */}
               <div className="my-4">
                 {post.mainImage && (
-                  <Image
-                    src={urlFor(post.mainImage).url()}
-                    alt={post.title}
-                    className="aspect-auto"
-                    width={1550}
-                    height={1310}
-                  />
+                  <>
+                    <Image
+                      src={urlFor(post.mainImage).url()}
+                      alt={post.imageCaption || post.title}
+                      className="aspect-auto"
+                      width={1550}
+                      height={1310}
+                    />
+                    {post.imageCaption && (
+                      <p className="">{post.imageCaption}</p>
+                    )}
+                  </>
                 )}
               </div>
               <div>
@@ -188,15 +196,16 @@ export default async function PostPage({
               <hr />
               {/* POST BODY */}
               <BodyFormatter body={post.body} />
-              
+
               {/* Add a div to mark the end of sticky scroll */}
               <div id="post-end" className="relative">
                 <span className="flex gap-2 items-center w-fit mx-auto">
                   {/* LIKES SECTION */}
-                 <p>Like Post</p> <Likes postId={post._id} postLikes={post.likes} />
+                  <p>Like Post</p>{" "}
+                  <Likes postId={post._id} postLikes={post.likes} />
                 </span>
               </div>
-              
+
               <hr className="my-8" />
               {/* Comments section remains outside the sticky scroll area */}
               <Comments id={post._id} comments={post.comments} />

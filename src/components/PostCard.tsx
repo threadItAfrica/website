@@ -5,8 +5,8 @@ import { DateFormatter } from "./DateFormatter";
 
 export const PostCard = ({ post }: { post: SanityDocument }) => {
   return (
-      <Link href={`/post/${post.slug.current}`}>
     <div className="group flex-shrink-0 h-fit w-[70%] sm:w-[45%] md:w-[calc(100%/3)] lg:w-[calc(100%/4)] xl:w-[calc(100%/5)] snap-center rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 font-body">
+      <Link href={`/post/${post.slug.current}`}>
         {/* Post Image */}
         {post.mainImage && (
           <div
@@ -34,7 +34,7 @@ export const PostCard = ({ post }: { post: SanityDocument }) => {
             <DateFormatter dateString={post.publishedAt} />
           </p>
         </div>
-    </div>
       </Link>
+    </div>
   );
 };

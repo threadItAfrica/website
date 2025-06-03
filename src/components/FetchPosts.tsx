@@ -25,7 +25,7 @@ export const FetchPosts = async ({ query, params }: FetchPostsProps) => {
 
   return (
     <section className="container mx-auto my-8">
-      <div className="flex justify-between w-[90%] mx-auto items-center">
+      <div className="flex justify-between w-[85%] mx-auto items-center">
         <h2 className="text-lg font-[600] mb-4">Related Posts</h2>
         {posts[0]?.categories?.[0]?.slug?.current && (
           <Link
@@ -39,11 +39,9 @@ export const FetchPosts = async ({ query, params }: FetchPostsProps) => {
       </div>
 
       {/* Desktop Layout */}
-      <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 px-4 py-4">
-        {posts.map((post) => (
-          <Link key={post._id} href={`/post/${post.slug.current}`}>
-            <PostCard post={post} />
-          </Link>
+      <div className="hidden md:flex justify-center gap-8 ">
+        {posts.map((post) => ( 
+            <PostCard key={post._id} post={post} /> 
         ))}
         {skeletonsNeeded > 0 &&
           skeletons.map((_, index) => (
