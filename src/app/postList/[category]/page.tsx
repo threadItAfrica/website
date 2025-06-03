@@ -112,13 +112,12 @@ export default async function PostList({ params, searchParams }: PageProps) {
       <TitleSection category={cat} />
 
       <section className="max-w-[2024px] container mt-[2vh] mx-auto lg:min-h-[90vh] flex flex-col justify-between px-2">
-        <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 md:gap-6 w-fit mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 w-fit mx-auto">
           {posts.map((post: SanityDocument) => ( 
             <div
             key={post._id}
-            className="w-full h-full group transition-all duration-300 hover:shadow-xl rounded-lg hover:-translate-y-1"
-            >
-                 {/* className="overflow-hidden rounded-lg" */}
+            className=""
+            > 
                 <PostCard post={post} />
               </div> 
           ))}
