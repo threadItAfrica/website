@@ -115,7 +115,7 @@ const Footer = async () => {
       </div>
       <hr className="my-2 border-slate-600" />
       <div className="text-center text-gray-400">
-        <p className="text-sm md:text-md">&copy; {new Date().getFullYear()} Thread It. All rights reserved.</p>
+        <p className="text-sm md:text-md">&copy; {new Date().getFullYear()} Threadit. All rights reserved.</p>
       </div>
     </footer>
   );

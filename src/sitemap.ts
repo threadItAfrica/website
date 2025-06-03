@@ -9,6 +9,7 @@ export default async function sitemap():Promise<MetadataRoute.Sitemap> {
     *[_type == "post"] {
       title,
       slug,
+      synopsis,
       publishedAt,
       excerpt,
       categories[]-> {
@@ -27,6 +28,8 @@ export default async function sitemap():Promise<MetadataRoute.Sitemap> {
   const postUrls = posts.map((post) => ({
     url: `https://threaditafrica.com/post/${post.slug.current}`,
     lastModified: new Date(post.publishedAt),
+    slug: post.synopsis,
+    title: post.title,
   }))
 
 

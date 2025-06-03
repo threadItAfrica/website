@@ -110,7 +110,7 @@ export const NewsletterSection = () => {
                 Join Our Newsletter
               </h2>
               <p className="text-gray-600">
-                Stay ahead with our weekly insights and updates. Join over our readers who trust our newsletter.
+                Stay ahead with our weekly insights and updates. Join our readers who trust our newsletter.
               </p>
             </div>
 

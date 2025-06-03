@@ -85,7 +85,7 @@ const Header = () => {
           {/* Desktop Navigation - Hidden on mobile, visible on lg and up */}
           <div className="hidden lg:flex items-center justify-between flex-grow ml-4 xl:ml-8">
             {/* Section Links */}
-            <div className="flex flex-wrap gap-1 md:gap-1 xl:gap-3 items-center">
+            <div className="flex gap-1 md:gap-1 xl:gap-2 items-center">
               {sectionLinks.map((item, index) => (
                 <Link
                   key={index}
