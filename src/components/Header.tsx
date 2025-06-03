@@ -179,7 +179,7 @@ const Header = () => {
                 onClick={handleLinkClick}
                 className="px-4 py-3 text-gray-800 hover:bg-green-50 font-medium"
               >
-                {item.title}
+                {item.tooltip}
               </Link>
             ))}
             
