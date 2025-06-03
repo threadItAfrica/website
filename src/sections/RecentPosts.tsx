@@ -3,6 +3,7 @@ import { SanityDocument } from "next-sanity";
 import CarouselControls from "@/components/CarouselControls";
 import PostSkeleton from "@/components/PostSkeleton";
 import { PostCard } from "@/components/PostCard";
+import Link from "next/link";
 import { Suspense } from "react";
 
 const QUERY = `*[_type == "post"]|order(publishedAt desc)[0...10]{
@@ -26,7 +27,9 @@ const PostsList = async () => {
   return (
     <>
       {posts.map((post) => (
-        <PostCard key={post._id} post={post} />
+        <Link key={post._id} href={`${post.slug.current}`}>
+        <PostCard  post={post} />
+        </Link>
       ))}
       {skeletonsNeeded > 0 && skeletons.map((_, index) => (
         <PostSkeleton key={`skeleton-${index}`} />

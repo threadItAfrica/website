@@ -41,7 +41,9 @@ export const FetchPosts = async ({ query, params }: FetchPostsProps) => {
       {/* Desktop Layout */}
       <div className="hidden md:flex justify-center gap-8 ">
         {posts.map((post) => ( 
-            <PostCard key={post._id} post={post} /> 
+           <Link key={post._id} href={`${post.slug.current}`}> 
+            <PostCard post={post} /> 
+           </Link>
         ))}
         {skeletonsNeeded > 0 &&
           skeletons.map((_, index) => (

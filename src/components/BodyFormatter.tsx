@@ -91,7 +91,7 @@ export const BodyFormatter = ({ body }: BodyFormatterProps) => {
                   href={value.href}
                   target={value.href.startsWith('http') ? '_blank' : '_self'}
                   rel={value.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="text-blue-600 hover:text-blue-600 underline underline-offset-2 hover:underline-offset-4 transition-all duration-200 font-medium"
+                  className="text-primary hover:text-primary/80 underline underline-offset-2 hover:underline-offset-4 transition-all duration-200 font-medium"
                 >
                   {children}
                 </a>
