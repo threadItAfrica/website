@@ -132,7 +132,7 @@ export default async function PostPage({
             {/* Main Content */}
             <div className="flex-1">
               <div className=" flex items-center gap-4">
-                <p className="w-fit text-sm font-[500] text-gray-900 bg-[#fff8ec] rounded-3xl md:px-4 py-1 my-3 md:my-6">
+                <p className="w-fit text-sm font-[500] text-gray-900 bg-[#fff8ec] rounded-3xl md:px-4 px-2 py-1 my-3 md:my-6">
                   {post.categories[0].title}
                 </p>
                 <PostTimeEstimator body={post.body} />
