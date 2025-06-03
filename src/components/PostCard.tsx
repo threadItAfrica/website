@@ -6,7 +6,7 @@ import { DateFormatter } from "./DateFormatter";
 export const PostCard = ({ post }: { post: SanityDocument }) => {
   // console.log(post)
   return (
-    <div className="group flex-shrink-0 h-fit w-full snap-center rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 font-body">
+    <div className="max-w-[320px] group flex-shrink-0 h-fit w-full snap-center rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 font-body">
       <Link key={post._id} href={`/post/${post.slug.current}`}>
         {/* Post Image */}
         {post.mainImage && (

@@ -184,7 +184,7 @@ export default async function PostPage({
                       height={1310}
                     />
                     {post.imageCaption && (
-                      <p className="py-4">{post.imageCaption}</p>
+                      <p className="py-4 italic text-sm">{post.imageCaption}</p>
                     )}
                   </>
                 )}
