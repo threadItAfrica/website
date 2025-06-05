@@ -11,8 +11,7 @@ export const BodyFormatter = ({ body }: BodyFormatterProps) => {
   const getHeaderId = (children: React.ReactNode) => {
     if (!children) return '';
     return children.toString().toLowerCase().replace(/\s+/g, '-');
-  };
-
+  }; 
   return (
     <div className="prose prose-sm md:prose-base lg:prose-lg max-w-none font-body">
       {Array.isArray(body) && (

@@ -45,8 +45,9 @@ async function About() {
 
               <div className="w-full sm:w-[60%] py-4  mx-auto text-base sm:text-lg font-medium leading-relaxed space-y-3 text-center">
                 <p className="text-inherit">
-                 {` Fashion isn't just about looking good anymore. Well… it can
-                  be. And that's totally fine.`}
+                 {` Fashion isn't just about looking good anymore.`}
+                 <br />
+                  {`Well… it can be. And that's totally fine.`}
                 </p>
                 <p className="text-inherit">
                   But it can also mean something more. It can be a force for

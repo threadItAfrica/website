@@ -24,15 +24,12 @@ export default async function sitemap():Promise<MetadataRoute.Sitemap> {
   }
 
   const posts: Post[] = await getPosts();
-
   const postUrls = posts.map((post) => ({
     url: `https://threaditafrica.com/post/${post.slug.current}`,
     lastModified: new Date(post.publishedAt),
-    slug: post.synopsis,
+    synopsis: post.synopsis,
     title: post.title,
   }))
-
-
   return [
     {
       url: `https://threaditafrica.com`,
