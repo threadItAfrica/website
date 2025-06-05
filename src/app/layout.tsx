@@ -6,8 +6,67 @@ import "./globals.css";
 import { Newsletter } from "@/components/Newsletter";
 
 export const metadata: Metadata = {
-  title: "Threadit | Sustainble fashion",
-  description: "Sustainable Fashion",
+  title: "Threadit | Sustainable Fashion",
+  description: "Sustainable Fashion, African Fashion, and more",
+  openGraph: {
+    title: "Threadit | Sustainable Fashion",
+    description: "Sustainable Fashion, African Fashion, and more",
+    url: "https://www.threaditafrica.com/",
+    siteName: "Threadit",
+    images: [
+      {
+        url: "https://www.threaditafrica.com/",
+        width: 1200,
+        height: 630,
+        alt: "Threadit - Sustainable Fashion",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    title: "Threadit | Sustainable Fashion",
+    description: "Sustainable Fashion, African Fashion, and more",
+    card: "summary_large_image",
+    images: ["https://www.threaditafrica.com/"],
+  },
+  icons: {
+    icon: "/favicon.ico", 
+  },
+  themeColor: "#006838", 
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+  },
+  keywords: [
+    "sustainable fashion",
+    "african fashion",
+    "ethical clothing",
+    "eco-friendly fashion",
+    "slow fashion",
+    "sustainable style",
+    "fashion trends",
+    "sustainable brands",
+    "fashion blog",
+    "sustainable living",
+    "fashion news",
+    "sustainable lifestyle",
+    "fashion tips",
+    "sustainable clothing",
+    "fashion inspiration",
+    "sustainable accessories",
+    "sustainable textiles",
+    "sustainable materials",
+    "sustainable fashion blog",
+    "sustainable fashion trends",
+    "sustainable fashion brands",
+    "sustainable fashion news",
+    "sustainable fashion tips",
+    "sustainable fashion inspiration",
+    "sustainable fashion lifestyle",
+  ] 
+  
 };
 
 export default function RootLayout({
