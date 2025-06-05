@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     siteName: "Threadit",
     images: [
       {
-        url: "https://www.threaditafrica.com/",
+        url: "https://www.threaditafrica.com/globe.svg",
         width: 1200,
         height: 630,
         alt: "Threadit - Sustainable Fashion",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: "Threadit | Sustainable Fashion",
     description: "Sustainable Fashion, African Fashion, and more",
     card: "summary_large_image",
-    images: ["https://www.threaditafrica.com/"],
+    images: ["https://www.threaditafrica.com/globe.svg"],
   },
   icons: {
     icon: "/favicon.ico", 
