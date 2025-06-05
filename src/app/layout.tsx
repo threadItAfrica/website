@@ -65,6 +65,7 @@ export const metadata: Metadata = {
     "sustainable fashion tips",
     "sustainable fashion inspiration",
     "sustainable fashion lifestyle",
+    "threadit"
   ] 
   
 };

@@ -8,7 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 // Define the form schema
 const commentSchema = z.object({
-  name: z.string().min(1, "Name is required"),
+  name: z.string().min(0),
   comment: z.string().min(1, "Comment is required")
 });
 
