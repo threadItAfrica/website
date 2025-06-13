@@ -4,6 +4,7 @@ import * as React from "react";
 import { ModalProvider } from "@/context/ModalContext"; 
 import "./globals.css";
 import { Newsletter } from "@/components/Newsletter";
+import {Analytics} from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: "Threadit | Sustainable Fashion",
@@ -91,6 +92,7 @@ export default function RootLayout({
           {children}
           <Newsletter />
         </ModalProvider>
+        <Analytics />
       </body>
     </html>
   );
