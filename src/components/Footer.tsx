@@ -116,6 +116,17 @@ const Footer = async () => {
       <hr className="my-2 border-slate-600" />
       <div className="text-center text-gray-400">
         <p className="text-sm md:text-md">&copy; {new Date().getFullYear()} Threadit. All rights reserved.</p>
+        <p className="text-xs md:text-sm mt-1">
+          Developed with <span className="text-primary">❤️</span> by{" "}
+          <Link
+            href="https://link.tree/volorunda"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-primary transition-colors duration-300"
+          >
+            Olorunda
+          </Link>
+        </p>
       </div>
     </footer>
   );
