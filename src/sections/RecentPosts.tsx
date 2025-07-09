@@ -16,7 +16,7 @@ const QUERY = `*[_type == "post"]|order(publishedAt desc)[0...10]{
   slug,
   mainImage,
   publishedAt
-}`;
+}`; 
 
 const PostsList = async () => {
   const posts: SanityDocument[] = await client.fetch(QUERY);
