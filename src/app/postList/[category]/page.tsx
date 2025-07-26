@@ -11,6 +11,7 @@ import EcoTrends from "@/assets/images/eco_trends.png"; // Fallback image
 import GreenFashion from "@/assets/images/green_fashion_image.png"; // Fallback image
 import AfricanFashion from "@/assets/images/african_fashion_image.jpg"; // Fallback image
 
+export const revalidate = 60; // Revalidate the data every 60 seconds
 const POSTS_PER_PAGE = 12;
 const POST_QUERY = `*[_type == "post" && $category in categories[]->slug.current]|order(publishedAt asc)[$start...$end]{
   _id,

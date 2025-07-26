@@ -35,6 +35,7 @@ const extractHeaders = (body: SanityBlock[]) => {
     .map((block) => block.children?.[0]?.text || "");
 };
 
+export const revalidate = 60; // Revalidate the data every 60 seconds
 const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]{
   ...,
   author->,
