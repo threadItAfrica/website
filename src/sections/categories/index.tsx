@@ -5,7 +5,9 @@ import { CategoryDisplay } from "./CategoryDisplay";
 // import { Eco } from "./Eco";
 import { client } from "@/sanity/client";
 import { Category } from "@/utils/interface";
- 
+
+export const revalidate = 60; // Revalidate the data every 60 seconds 
+
 const QUERY = `*[_type == "category"] {
   _id,
   title,

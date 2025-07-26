@@ -5,6 +5,9 @@ import PostSkeleton from "@/components/PostSkeleton";
 import { PostCard } from "@/components/PostCard"; 
 import { Suspense } from "react";
 
+// Revalidate the data every 60 seconds
+export const revalidate = 60;
+
 const QUERY = `*[_type == "post"]|order(publishedAt desc)[0...10]{
   _id,
   title, 

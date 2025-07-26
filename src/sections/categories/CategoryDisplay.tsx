@@ -11,6 +11,8 @@ import { FiChevronsRight } from "react-icons/fi";
 import { StaticImageData } from "next/image";
 import CategoryPostSkeleton from "@/components/CategoryPostSkeleton";
 
+export const revalidate = 60; // Revalidate the data every 60 seconds
+
 const QUERY = `*[_type == "category" && _id == $categoryId][0]{
   _id,
   title,
