@@ -11,8 +11,6 @@ import { FiChevronsRight } from "react-icons/fi";
 import { StaticImageData } from "next/image";
 import CategoryPostSkeleton from "@/components/CategoryPostSkeleton";
 
-export const revalidate = 60; // Revalidate the data every 60 seconds
-
 const QUERY = `*[_type == "category" && _id == $categoryId][0]{
   _id,
   title,
@@ -42,7 +40,9 @@ export const CategoryDisplay = async ({
 }: {
   category: string;
 }) => {
-  const categoryData = await client.fetch(QUERY, { categoryId: category });
+  const categoryData = await client.fetch(QUERY, { categoryId: category }, {
+    next: { revalidate: 60 }
+  });
 
   if (!categoryData) return null;
 

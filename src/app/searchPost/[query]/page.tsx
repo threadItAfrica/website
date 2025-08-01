@@ -7,7 +7,7 @@ import { PostCard } from "@/components/PostCard";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { LuArrowLeftToLine } from "react-icons/lu";
 
-export const revalidate = 60; // Revalidate the data every 60 seconds 
+export const revalidate = 60; 
 const POSTS_PER_PAGE = 12;
 const SEARCH_QUERY = `*[_type == "post" && (
   title match $searchQuery + "*" || 

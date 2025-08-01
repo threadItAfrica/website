@@ -22,7 +22,9 @@ const QUERY = `*[_type == "post"]|order(publishedAt desc)[0...10]{
 }`; 
 
 const PostsList = async () => {
-  const posts: SanityDocument[] = await client.fetch(QUERY);
+  const posts: SanityDocument[] = await client.fetch(QUERY, {}, {
+    next: { revalidate: 60 }
+  });
   const skeletonsNeeded = Math.max(0, 5 - posts.length);
   const skeletons = Array(skeletonsNeeded).fill(null);
   

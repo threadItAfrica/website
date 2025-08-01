@@ -6,8 +6,6 @@ import { CategoryDisplay } from "./CategoryDisplay";
 import { client } from "@/sanity/client";
 import { Category } from "@/utils/interface";
 
-export const revalidate = 60; // Revalidate the data every 60 seconds 
-
 const QUERY = `*[_type == "category"] {
   _id,
   title,
@@ -17,7 +15,11 @@ const QUERY = `*[_type == "category"] {
 }`;
 
 export const Categories = async () => {
-  const categories = await client.fetch<Category[]>(QUERY);
+  const categories = await client.fetch<Category[]>(QUERY, {}, {
+    next: {
+      revalidate: 60
+    }
+  });
 
   return (
     <section className="w-full mx-auto max-w-[2024px]">
