@@ -119,7 +119,7 @@ const Footer = async () => {
         <p className="text-xs md:text-sm mt-1">
           Developed with <span className="text-primary">❤️</span> by{" "}
           <Link
-            href="https://link.tree/volorunda"
+            href="https://linktr.ee/volorunda"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-primary transition-colors duration-300"

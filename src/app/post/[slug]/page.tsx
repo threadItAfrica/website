@@ -3,7 +3,7 @@ import { Any, type SanityDocument } from "next-sanity";
 import { client } from "@/sanity/client";
 import Image from "next/image";
 import { urlFor } from "@/sanity/image";
-import Head from "next/head";
+// import Head from "next/head";
 import Comments from "@/components/Comments"; // Import Comments component
 import { DateFormatter } from "@/components/DateFormatter";
 import Socials from "@/components/Socials";
@@ -81,11 +81,11 @@ export default async function PostPage({
 
   return (
     <>
-      <Head>
+      {/* <Head> */}
         {/* Open Graph Meta Tags */}
-        <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={post.synopsis} />
-        <meta
+        {/* <meta property="og:title" content={post.title} /> */}
+        {/* <meta property="og:description" content={post.synopsis} /> */}
+        {/* <meta
           property="og:image"
           content={
             post.mainImage
@@ -97,10 +97,10 @@ export default async function PostPage({
           property="og:url"
           content={`${mainUrl}/post/${post.slug.current}`}
         />
-        <meta property="og:type" content="article" />
+        <meta property="og:type" content="article" /> */}
 
         {/* Twitter Card Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
+        {/* <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.synopsis} />
         <meta
@@ -111,7 +111,7 @@ export default async function PostPage({
               : `${mainUrl}/default-thumbnail.jpg`
           }
         />
-      </Head>
+      </Head> */}
 
       <main>
         <Header />
