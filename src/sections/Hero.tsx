@@ -84,7 +84,7 @@ const Hero = () => {
         <div className="tet-center w-fit mx-center text-white py-4 px-8 rounded-xl">
           <p className="text-3xl lg:text-4xl text-inherit font-Thicccboi">
             What you wear<br />  can change everything- 
-            <br /><span className="block mt-4 md:mt-6 text-2xl md:text-4xl text-[#E5D170]">Hi Threadies,</span>
+            <br /><span className="block mt-4 md:mt-6 text-2xl md:text-4xl text-[#E5D170]">Hey Threaders,</span>
           </p>
           <p className="text-md md:text-[1.05rem] text-inherit font-lato w-full md:w-2/4 text-center mx-auto">
             Look good. Do good.
