@@ -87,6 +87,13 @@ export default function RootLayout({
           `}}
         />
         <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/3fea375d18ea12601b5d5c484/64aa59f1b085c7341cfe5e816.js");</script>
+     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1Z4SKEN20Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1Z4SKEN20Q');
       </head>
       <body>
         <ModalProvider>
