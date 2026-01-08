@@ -1,140 +1,56 @@
-import mailchimp from '@mailchimp/mailchimp_marketing';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
+import MailerLite from '@mailerlite/mailerlite-nodejs';
 
-interface SubscribeRequest {
-  email: string;
-  firstName?: string;
-  lastName?: string;
-}
-
-interface MailchimpError {
-  response?: {
-    body?: {
-      title?: string;
-      detail?: string;
-    };
-  };
-}
-
-// Rate limiting
-const RATE_LIMIT = 5; // requests
-const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute in milliseconds
-const ipRequests = new Map<string, { count: number; timestamp: number }>();
-
-function getRateLimitResponse() {
-  return NextResponse.json(
-    { error: 'Too many requests. Please try again later.' },
-    { 
-      status: 429,
-      headers: {
-        'Access-Control-Allow-Origin': process.env.NEXT_PUBLIC_SITE_URL || '*',
-        'Access-Control-Allow-Methods': 'POST, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type'
-      }
-    }
-  );
-}
-
-// Validate environment variables
-const requiredEnvVars = {
-  MAILCHIMP_API_KEY: process.env.MAILCHIMP_API_KEY,
-  MAILCHIMP_SERVER_PREFIX: process.env.MAILCHIMP_SERVER_PREFIX,
-  MAILCHIMP_AUDIENCE_ID: process.env.MAILCHIMP_AUDIENCE_ID,
-};
-
-for (const [key, value] of Object.entries(requiredEnvVars)) {
-  if (!value) {
-    throw new Error(`Missing required environment variable: ${key}`);
-  }
-}
-
-mailchimp.setConfig({
-  apiKey: requiredEnvVars.MAILCHIMP_API_KEY,
-  server: requiredEnvVars.MAILCHIMP_SERVER_PREFIX,
+const mailerlite = new MailerLite({
+  api_key: process.env.MAILERLITE_API_KEY!,
 });
 
-function isValidEmail(email: string): boolean {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
-
-function sanitizeInput(input: string): string {
-  return input.trim().replace(/[<>]/g, '');
-}
-
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   try {
-    // Rate limiting check first
-    const clientIp = request.headers.get('x-forwarded-for') || request.headers.get('remote-addr') || '';
-    const now = Date.now();
-    const requestData = ipRequests.get(clientIp) || { count: 0, timestamp: now };
-    
-    if (now - requestData.timestamp < RATE_LIMIT_WINDOW) {
-      requestData.count++;
-    } else {
-      requestData.count = 1;
-      requestData.timestamp = now;
-    }
+    const { email, name } = await request.json();
 
-    ipRequests.set(clientIp, requestData);
-
-    if (requestData.count > RATE_LIMIT) {
-      return getRateLimitResponse();
-    }
-
-    // Parse request body
-    const { email, firstName, lastName }: SubscribeRequest = await request.json();
-
-    if (!email) {
+    // Validate email
+    if (!email || !email.includes('@')) {
       return NextResponse.json(
-        { error: 'Email is required' },
+        { error: 'Valid email is required' },
         { status: 400 }
       );
     }
 
-    const sanitizedEmail = sanitizeInput(email);
-    if (!isValidEmail(sanitizedEmail)) {
-      return NextResponse.json(
-        { error: 'Invalid email format' },
-        { status: 400 }
-      );
-    }
+    // Add subscriber to MailerLite
+    const params = {
+      email: email,
+      fields: {
+        name: name || '',
+      },
+      // Optional: add to a specific group
+      groups: ['group_id_here'],
+    };
 
-    const response = await mailchimp.lists.addListMember(
-      requiredEnvVars.MAILCHIMP_AUDIENCE_ID!,
-      {
-        email_address: sanitizedEmail,
-        status: 'subscribed',
-        merge_fields: {
-          FNAME: firstName ? sanitizeInput(firstName) : '',
-          LNAME: lastName ? sanitizeInput(lastName) : '',
-        },
-      }
-    ) as { id: string; email_address: string };
+    const response = await mailerlite.subscribers.createOrUpdate(params);
 
-    return NextResponse.json({
-      success: true,
-      message: 'Successfully subscribed!',
-      member_id: response.id
-    });
-  } catch (error) {
-    console.error('Mailchimp error:', error);
-    console.log('Mailchimp error:', error);
+    return NextResponse.json(
+      { 
+        success: true, 
+        message: 'Successfully subscribed!',
+        data: response.data 
+      },
+      { status: 200 }
+    );
+
+  } catch (error: any) {
+    console.error('MailerLite subscription error:', error);
     
-    const mailchimpError = error as MailchimpError;
-    
-    if (mailchimpError.response?.body?.title === 'Member Exists') {
+    // Handle specific MailerLite errors
+    if (error.response?.status === 422) {
       return NextResponse.json(
-        { error: 'This email is already subscribed' },
-        { status: 400 }
+        { error: 'Invalid email address or subscriber already exists' },
+        { status: 422 }
       );
     }
 
     return NextResponse.json(
-      { 
-        error: 'Something went wrong. Please try again.',
-        detail: mailchimpError.response?.body?.detail || 'Unknown error'
-      },
+      { error: 'Failed to subscribe. Please try again.' },
       { status: 500 }
     );
   }
