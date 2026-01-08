@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
         name: name || '',
       },
       // Optional: add to a specific group
-      groups: ['group_id_here'],
+      // groups: ['group_id_here'],
     };
 
     const response = await mailerlite.subscribers.createOrUpdate(params);
