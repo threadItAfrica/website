@@ -37,12 +37,13 @@ export async function POST(request: NextRequest) {
       },
       { status: 200 }
     );
-
-  } catch (error: any) {
+ 
+  } catch (error: unknown) {
+    const err = error as { response?: { status: number } };
     console.error('MailerLite subscription error:', error);
     
     // Handle specific MailerLite errors
-    if (error.response?.status === 422) {
+    if (err.response?.status === 422) {
       return NextResponse.json(
         { error: 'Invalid email address or subscriber already exists' },
         { status: 422 }

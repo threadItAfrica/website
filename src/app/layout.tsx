@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import * as React from "react";
 import { ModalProvider } from "@/context/ModalContext"; 
 import "./globals.css";
