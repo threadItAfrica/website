@@ -87,13 +87,13 @@ export default function RootLayout({
           `}}
         />
         <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/3fea375d18ea12601b5d5c484/64aa59f1b085c7341cfe5e816.js");</script>
-     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1Z4SKEN20Q"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-1Z4SKEN20Q');
+     <script>
+      (function(w,d,e,u,f,l,n){w[f]=w[f]function(){(w[f].q=w[f].q[])
+      .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+      n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+      (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+      ml('account', '2024098');
+    </script>
       </head>
       <body>
         <ModalProvider>
