@@ -4,7 +4,7 @@ import { useModal } from "@/context/ModalContext";
 
 import { useState, FormEvent } from "react";
 
-export default function Newsletter() {
+export const Newsletter =() => {
   const { isOpen, setIsOpen } = useModal();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
